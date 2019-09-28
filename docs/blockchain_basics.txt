@@ -1,0 +1,327 @@
+Building my first blockchain [1]:
+  "Remember that a blockchain is an immutable, sequential chain of records called Blocks.
+  They can contain transactions, files or any data you like, really. But the important thing is that they’re chained together using hashes."
+
+   Hash functions:
+    take input x, pass through function f and produce an output y, which is a hash "string"  depending on x [2].
+
+   Build the Block chain:
+     1st create a Blockchain class how builds the list that stores the blockchain and another list that
+     stores the transactions.
+
+     Blockchain class
+       class Blockchain(object):
+    def __init__(self):
+        self.chain = []
+        self.current_transactions = []
+
+    def new_block(self):
+        # Creates a new Block and adds it to the chain
+        pass
+
+    def new_transaction(self):
+        # Adds a new transaction to the list of transactions
+        pass
+
+    @staticmethod
+    def hash(block):        [run hash function?]
+        # Hashes a Block
+        pass
+
+    @property
+    def last_block(self):     [as i did in my list implementation]
+        # Returns the last Block in the chain
+        pass
+
+    This looks more like an interface.
+
+[]    The block. In this moment it would be a block object inside the block chain list?
+
+     block = {
+               'index': 1,
+               'timestamp': 1506057125.900785,
+[aray, list? ]  'transactions': [
+                   {
+                       'sender': "8527147fe1f5426f9dd545de4b27ee00",
+                       'recipient': "a77f5cdfa2934df3954a5c7c7da5df1f",
+                       'amount': 5,
+                   }
+               ],
+               'proof': 324984774000,
+               'previous_hash': "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"
+           }
+
+
+          By adding the hash of the previeus block we are building the list(or the chain fancy name)
+
+
+          _____________________________________________________________________________________________
+
+            This is crucial because it’s what gives blockchains immutability: If an attacker corrupted an earlier Block in the chain then all subsequent blocks will contain incorrect hashes.
+
+
+            b1, b2 , b3 , ..., bi, bj, bj+1, ..., bn
+
+if an attacker modify bj, then its hash will be modified  then bj+1 can not get any block before itself
+
+  node_a (val, node_b)
+  node_b (val, node_c)
+
+[] leetcode node_b is an object (node) not a reference of the object?
+        ______________________________________________________________________________________________
+
+      Adding Transactions to a Block
+
+We’ll need a way of adding transactions to a Block. Our new_transaction() method is responsible for this, and it’s pretty straight-forward:
+
+      def new_transaction(self, sender, recipient, amount):
+        """
+        Creates a new transaction to go into the next mined Block
+        :param sender: <str> Address of the Sender
+        :param recipient: <str> Address of the Recipient
+        :param amount: <int> Amount
+        :return: <int> The index of the Block that will hold this transaction
+        """
+
+        self.current_transactions.append({
+            'sender': sender,
+            'recipient': recipient,
+            'amount': amount,
+        })
+
+        return self.last_block['index'] + 1
+
+        class Blockchain(object):
+               ...
+
+               def new_transaction(self, sender, recipient, amount):
+                   """
+                   Creates a new transaction to go into the next mined Block
+                   :param sender: <str> Address of the Sender
+                   :param recipient: <str> Address of the Recipient
+                   :param amount: <int> Amount
+                   :return: <int> The index of the Block that will hold this transaction
+                   """
+
+                   self.current_transactions.append({
+                       'sender': sender,
+                       'recipient': recipient,
+                       'amount': amount,
+                   })
+
+                   return self.last_block['index'] + 1
+
+        Flow:
+          BC creates a new transaction and added to transaction list. also it passes the index for the next block and append that
+          transaction to the block "o—the next one to be mined.".
+
+        Creating new Blocks
+When our Blockchain is instantiated we’ll need to seed it with a genesis block—a block with no predecessors. We’ll also need to add a “proof” to our genesis block which is the result of mining (or proof of work). We’ll talk more about mining later.
+
+         defining the root of the List.
+
+
+         Creating new block root.
+ c\                        import hashlib
+
+          hashlib — Secure hashes and message digests
+          This module implements a common interface to many different secure hash and message digest algorithms. Included are the FIPS secure hash algorithms SHA1, SHA224, SHA256, SHA384, and SHA512 (defined in FIPS 180-2) as well as RSA’s MD5 algorithm (defined in Internet RFC 1321). The terms “secure hash” and “message digest” are interchangeable. Older algorithms were called message digests. The modern term is secure hash.
+
+Note If you want the adler32 or crc32 hash functions, they are available in the zlib module.
+
+ c\             import json
+
+ c\             from time import time
+ c\
+ c\
+ c\             class Blockchain(object):
+ c\                 def __init__(self):
+ c\                     self.current_transactions = []
+ c\                     self.chain = []
+ c\
+ c\                     # Create the genesis block
+ c\ [wy 1 should not be null?]                    self.new_block(previous_hash=1, proof=100)
+ c\
+ c\                 def new_block(self, proof, previous_hash=None):
+ c\                     """
+ c\                     Create a new Block in the Blockchain
+ c\ [Hash function?]                    :param proof: <int> The proof given by the Proof of Work algorithm
+ c\                     :param previous_hash: (Optional) <str> Hash of previous Block
+ c\                     :return: <dict> New Block
+ c\                     """
+ c\
+ c\                     block = {
+ c\                         'index': len(self.chain) + 1,
+ c\                         'timestamp': time(),
+ c\                         'transactions': self.current_transactions,
+ c\                         'proof': proof,
+ c\ [~]                     'previous_hash': previous_hash or self.hash(self.chain[-1]),
+ c\                     }
+
+[wy on earth]                # Reset the current list of transactions
+                               self.current_transactions = []
+
+                               self.chain.append(block)
+                               return block
+
+
+[How calls new transaction?] def new_transaction(self, sender, recipient, amount):
+                               """
+                           __________________________________________________________________________
+                               Creates a new transaction to go into the next mined Block
+                           ___________________________________________________________________________
+                               :param sender: <str> Address of the Sender
+                               :param recipient: <str> Address of the Recipient
+                               :param amount: <int> Amount
+                               :return: <int> The index of the Block that will hold this transaction
+                               """
+                               self.current_transactions.append({
+                                   'sender': sender,
+                                   'recipient': recipient,
+                                   'amount': amount,
+                               })
+
+                               return self.last_block['index'] + 1
+
+ FLow a new transaction is created so it is added to the transaction list. Later  one block is mined and gets the transaction lists. Thats
+ how the block gets all the transactions. But previeus blocks doesnt have the transactions unless this block gets only the tail of
+ the transactions list and does not know the head.
+
+                               @staticmethod
+                                def hash(block):
+                                    """
+                                    Creates a SHA-256 hash of a Block
+                                    :param block: <dict> Block
+                                    :return: <str>
+                                    """
+
+                                    # We must make sure that the Dictionary is Ordered, or we'll have inconsistent hashes
+                                    block_string = json.dumps(block, sort_keys=True).encode()
+                                    return hashlib.sha256(block_string).hexdigest()
+
+
+
+
+                               Understanding Proof of Work (requiring some work from the service requester, usually meaning processing time by a computer. The concept was invented by Cynthia Dwork and Moni Naor as presented in a 1993 journal article.[1] The term "Proof of Work" or PoW was first coined and formalized in a 1999 paper by Markus Jakobsson and Ari)
+
+                               A Proof of Work algorithm (PoW) is how new Blocks are created or mined on the blockchain. The goal of PoW is to discover a number which solves a problem. The number must be difficult to find but easy to verify—computationally speaking—by anyone on the network. This is the core idea behind Proof of Work.
+
+[Dificult to find solve hard math problem but easy to verify through the hash function istn it?]
+
+
+                              In Bitcoin, the Proof of Work algorithm is called Hashcash. And it’s not too different from our basic example above. It’s the algorithm that miners race to solve in order to create a new block. In general, the difficulty is determined by the number of characters searched for in a string. The miners are then rewarded for their solution by receiving a coin—in a transaction.
+
+
+                            Proof of work implementation:
+
+                                import hashlib
+                                 import json
+
+                                 from time import time
+                                 from uuid import uuid4
+
+
+                                 class Blockchain(object):
+                                     ...
+
+                                     def proof_of_work(self, last_proof):
+                                         """
+                                         Simple Proof of Work Algorithm:
+                                          - Find a number p' such that hash(pp') contains leading 4 zeroes, where p is the previous p'
+                                          - p is the previous proof, and p' is the new proof
+                                         :param last_proof: <int>
+                                         :return: <int>
+                                         """
+
+                                         proof = 0
+                                         while self.valid_proof(last_proof, proof) is False:
+                                             proof += 1
+
+                                         return proof
+
+
+                                     @staticmethod
+                                         def valid_proof(last_proof, proof):
+                                             """
+                                             Validates the Proof: Does hash(last_proof, proof) contain 4 leading zeroes?
+                                             :param last_proof: <int> Previous Proof
+                                             :param proof: <int> Current Proof
+                                             :return: <bool> True if correct, False if not.
+                                             """
+
+                                             guess = f'{last_proof}{proof}'.encode()
+                                             guess_hash = hashlib.sha256(guess).hexdigest()
+                                             return guess_hash[:4] == "0000"
+
+
+
+                      API
+
+                        We’ll create three methods:
+                        /transactions/new to create a new transaction to a block
+                        /mine to tell our server to mine a new block.
+                        /chain to return the full Blockchain.
+
+
+
+[Node is a computer or agent or mineer?]
+
+transaction end point
+
+
+
+
+minnin endpoint Where magic happens
+The Mining Endpoint
+Our mining endpoint is where the magic happens, and it’s easy. It has to do three things:
+Calculate the Proof of Work
+Reward the miner (us) by adding a transaction granting us 1 coin
+Forge the new Block by adding it to the chain
+
+@app.route('/mine', methods=['GET'])
+def mine():
+    # We run the proof of work algorithm to get the next proof...
+    last_block = blockchain.last_block
+    last_proof = last_block['proof']
+    proof = blockchain.proof_of_work(last_proof)
+
+    # We must receive a reward for finding the proof.
+    # The sender is "0" to signify that this node has mined a new coin.
+    blockchain.new_transaction(
+        sender="0",
+        recipient=node_identifier,
+        amount=1,
+    )
+
+    # Forge the new Block by adding it to the chain
+    previous_hash = blockchain.hash(last_block)
+    block = blockchain.new_block(proof, previous_hash)
+
+    response = {
+[wy new block was forgeted?]         'message': "New Block Forged",
+        'index': block['index'],
+        'transactions': block['transactions'],
+        'proof': block['proof'],
+        'previous_hash': block['previous_hash'],
+    }
+    return jsonify(response), 200
+
+Step 4: Consensus
+This is very cool. We’ve got a basic Blockchain that accepts transactions and allows us to mine new Blocks. But the whole point of Blockchains is that they should be decentralized. And if they’re           *****decentralized******               , how on earth do we ensure that they all reflect the same chain? This is called the problem of Consensus, and we’ll have to implement a                                              ****** Consensus Algorithm ******                   if we want more than one node in our network
+
+blockchain las aplicacion no es el que tunnea el.
+
+una empresa crea su blockchain DBA. crea nodos transacciones etc
+Lo interesante del blockchain es lo que se puede hacer con eso
+
+el que la escribe no es el dba
+
+el de ops del blckchain es el dba
+
+el que las usass no es el dba
+
+[] How could a block has a list of transactions ? "a list of transactions"
+[] i the implementation of the block chain the elements on the list should be objects or hashes?
+References:
+  1. https://medium.com/@vanflymen/learn-blockchains-by-building-one-117428612f46
+  2. https://learncryptography.com/hash-functions/what-are-hash-functions
