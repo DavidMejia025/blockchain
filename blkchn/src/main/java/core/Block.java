@@ -1,27 +1,31 @@
 package core;
-import java.util.Date;
+import java.sql.Timestamp;
 import java.util.List;
+
+import utils.Hashes;
+
 public class Block {
   private String             prevHash;
-  private String             proove;
+  private int                nonce;
   private int                index;
-  private Date               timeStamp;
+  private Timestamp          timestamp;
   private List<Transaction>  transactions; 
   //autowired
   private List<Block>        blockChain;
   
-  public Block Block(String prevHash, String proove) {
-    this.index        = blockChain.size();
-    this.transactions = blockChain.pendingTransactions(); // this is just one the transaction that will be associate to the block? queue? or the Transactions list
-    this.timeStamp    = new Date();
+  public Block(int index, List<Transaction> transactionsp, String  prevHash, int nonce) {
+    this.index        = index;
+    this.transactions = transactions; // this is just one the transaction that will be associate to the block? queue? or the Transactions list
+    this.timestamp    = new Timestamp(System.currentTimeMillis());
     this.prevHash     = prevHash;
-    this.proove       = proove;
-    
-    return this;
-    //  noonce wtf is noonce 
+    this.nonce        = nonce;
   }
   
   public String getPrevHash() {
     return this.prevHash;
+  }
+  
+  public int getNonce() {
+    return this.nonce;
   }
 }

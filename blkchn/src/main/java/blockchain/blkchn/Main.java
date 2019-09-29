@@ -11,3 +11,9 @@ public class Main
         System.out.println( "Hello World!" );
     }
 }
+/*test protocol
+1. create a block chain
+   create the root block
+2. create a new block (this should be done by  a worker
+
+*/
