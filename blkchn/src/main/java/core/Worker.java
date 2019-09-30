@@ -5,11 +5,11 @@ import java.util.List;
 public interface Worker{
   Block createBlock(String  prevHash, int nonce);
   
-  BlockChain createBlockChain();
+  void createBlockChain();
   
   //Transaction createTransaction();
   
-  void addWorker();
+  void addWorker(WorkerImpl newWorker);
   
   void mineBlock();
   

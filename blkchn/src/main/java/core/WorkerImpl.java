@@ -1,21 +1,24 @@
 package core;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+
+import utils.Hashes;
 
 public class WorkerImpl implements Worker {
   private String            url;
   private Block             block;
-  private List<Transaction> pendingTransactions;
+  private List<Transaction> pendingTransactions = new ArrayList<Transaction>();
   private List<Block>       blocksEarned;
   public  BlockChainImpl    chain;
-  
-  void Worker() {
-    this.url = "192.13.423.22";
+
+  public WorkerImpl(String url) {
+    this.url = url;
   }
-  
-  public BlockChain createBlockChain() {
-    return new BlockChainImpl();
+
+  public void createBlockChain() {
+    this.chain = new BlockChainImpl();
   }
   
   public Block createBlock(String  prevHash, int nonce) {
@@ -28,20 +31,21 @@ public class WorkerImpl implements Worker {
         nonce
       );
     
-    this.pendingTransactions = new ArrayList<Transaction>();;
+    this.pendingTransactions = new ArrayList<Transaction>();
     
     return newBlock;  // append new block when created? or after mined? or after approval ?
   }
   
-  public void addWorker() {
-    int val = 2;
+  public void addWorker(WorkerImpl newWorker) {
+    newWorker.getBlockChain(this.chain);
   }
-
-  private void addTransaction(String sender, String recipient, int amount) {
-  //Creates a new transaction to go into the next mined Block
-    Transaction newTransaction = new Transaction(sender, recipient, amount);
-    
-    pendingTransactions.add(newTransaction);
+  
+  public void getBlockChain(BlockChainImpl blockChain) {
+    this.chain = blockChain;
+  }
+  
+  public void addTransaction(Transaction newTransaction) {
+    this.pendingTransactions.add(newTransaction);
   //return self.last_block['index'] + 1 transaction will be added to next block (the one to be mined) index = this return
   }
   
@@ -51,7 +55,9 @@ public class WorkerImpl implements Worker {
     
     int nonce = proofOfWork(prevBlock);
     
-    String prevHash = prevBlock.getPrevHash();
+    String prevBlockStringfy = prevBlocktoString(prevBlock);
+    
+    String prevHash = Hashes.calculateHash(prevBlockStringfy);
     
     Block newBlock = createBlock(prevHash, nonce);
     
@@ -65,6 +71,8 @@ public class WorkerImpl implements Worker {
     int     prevNonce = prevBlock.getNonce();
     
     while (currentProofOfWork == false) {
+      System.out.println("Currently minning a new block ");
+      
       nonce += 1;
       
       proofOfWorkResult = this.chain.validProofOfWork(prevNonce, nonce);
@@ -75,5 +83,21 @@ public class WorkerImpl implements Worker {
     }
     
     return nonce;
+  }
+  
+  public BlockChainImpl getBlockChain() {
+    return this.chain;
+  }
+  
+  private String prevBlocktoString(Block block) {
+    String blockString = "" +
+        block.getIndex() +
+        block.getTransactions() +
+        block.getTimestamp() +
+        block.getHash() +
+        block.getNonce() +
+        "";
+    
+    return blockString;
   }
 }

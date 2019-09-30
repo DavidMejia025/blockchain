@@ -1,16 +1,23 @@
 package core;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
+import java.lang.Thread;
+
+import utils.Hashes;
 
 public class BlockChainImpl implements BlockChain{
-  List<Block> chain;
+  List<Block> chain = new ArrayList<Block>();
+  String difficulty = "0";
   
-  public List<Block> BlockChainImpl() {
-    this.chain.add(new Block(1, null, "0000", (Integer) null));
-    //this.pendingTransactions = new ArrayList<Transaction>();
-    return chain;
+  public BlockChainImpl() {
+    System.out.println("Creating a bc with the root block");
+    Transaction firstTransaction = new Transaction("0", "1", 1);
+    List<Transaction> transactions = new ArrayList<Transaction>();
+    
+    Block root = new Block(1, transactions, "1", 103);
+
+    this.chain.add(root); 
   }
   
   public void addBlock(Block newBlock) {
@@ -30,7 +37,16 @@ public class BlockChainImpl implements BlockChain{
   
 //I have doubts on the place for the PoW, should it belongs to the chain or the worker?
   public boolean validProofOfWork(int prevNonce, int nonce) {
-    return true;
+    String hash     = Hashes.calculateHash("" + prevNonce + nonce + "");
+    String hashTest =  hash.substring(0, 1);
+    
+    try {
+      Thread.sleep(100);
+    } catch (InterruptedException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+    return (hashTest.equals(difficulty));
   }
   
   public boolean validChain() {
