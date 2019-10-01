@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import blockchain.utils.Hashes;
 
-@Service
+
 public class WorkerImpl implements Worker {
   String url;
   String nodeUrl = null;
@@ -20,8 +20,7 @@ public class WorkerImpl implements Worker {
     
     int nonce = proofOfWork(prevNonce);
     
-    //send post request to Node to mine end point
-    //String nodeResponse =
+    //send post request to Node with the corresponding nonce in order to mine end point
     String result;
     
     Boolean mined = true;
@@ -29,7 +28,7 @@ public class WorkerImpl implements Worker {
     if (mined == true) {
       result = "Earn 1 Coin from block #Hash transaction #T";
     }else {
-      result = "try again";
+      result = "nonce failed, calculating new nonce again";
     }
     
     System.out.println(nonce);
@@ -40,7 +39,7 @@ public class WorkerImpl implements Worker {
   
   // this kind of methods should return string or boolean with the confirmation of the operation?
   public void findNode() {
-    //ping random ports to get one node     
+  //ping random ports to get one node     
     this.nodeUrl = "3000";
   }
   
@@ -82,16 +81,4 @@ public class WorkerImpl implements Worker {
     }
     return (hashTest.equals(difficulty));
   }
- 
-
 }
-
-/* 
- * public void mineBlock() {
-    
-    String prevBlockStringfy = prevBlocktoString(prevBlock); ---> chain
-    String prevHash = Hashes.calculateHash(prevBlockStringfy); ---> chain
-    Block newBlock = createBlock(prevHash, nonce); ---> chain
-    this.chain.addBlock(newBlock); ---> chain
-  }
-  */
