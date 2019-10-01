@@ -7,6 +7,8 @@ public interface BlockChain {
   
   boolean validChain();
   
+  void addBlock(Block block);
+  
   Block getLastBlock();
   
   String getDifficulty();

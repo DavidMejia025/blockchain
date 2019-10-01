@@ -1,6 +1,8 @@
 package blockchain.node.controller;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,34 +27,27 @@ public class NodeController {
     
     Block root = blockchain.getLastBlock();
     
-    return "Block chain with root node that has previous hash eq = " + root.getPrevHash() + " was created";
+    return "Blockchain with root node that has previous hash eq = " + root.getPrevHash() + " was created";
   }
   
   @PostMapping(value = "/mine", headers="Accept=application/json", consumes = "application/JSON")
-  public boolean postMine(@RequestBody String params) throws IOException, Exception {
+  public Map<String, String>  postMine(@RequestBody String params) throws IOException, Exception {
     int nonce = parseJsonMine(params);
     
-    BlockChain blockchain = node.getBlockChain();
-    Block      prevBlock  = blockchain.getLastBlock();
+    JSONObject response1 = node.mineBlock(nonce);
+    System.out.println(response1);
     
-    boolean proveOfWorkResult = blockchain.validProofOfWork(prevBlock.getNonce(), nonce);
-    
-    proveOfWorkResult = true;
-    
-    if (proveOfWorkResult == true) {
-      String prevHash = blockchain.prevBlocktoString(prevBlock);
-      
-      blockchain.createBlock(prevHash, nonce);
-      
-      System.out.println(blockchain.getLastBlock().getNonce());
-      System.out.println(blockchain.getLastBlock().getPrevHash());
-    }else {
-      
-    }
-    System.out.println(nonce);
-    System.out.println(proveOfWorkResult);
-    
-    return proveOfWorkResult;
+    Map<String, String> response = sayHello(); //Wy json object is not working on the client side?
+    return response;
+  }
+  
+  @GetMapping
+  public Map<String, String> sayHello() {
+      HashMap<String, String> map = new HashMap<>();
+      map.put("key", "value");
+      map.put("foo", "bar");
+      map.put("aa", "bb");
+      return map;
   }
   
   @GetMapping("/last-nounce")
@@ -77,7 +72,7 @@ public class NodeController {
   //Need to get a better way to parse any json sending the fields....
   private Integer parseJsonMine(String json) {
     JSONObject obj = new JSONObject(json);
-
+    
     return (int) obj.get("nonce");
   }
   
