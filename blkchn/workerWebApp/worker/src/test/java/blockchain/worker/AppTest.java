@@ -1,4 +1,4 @@
-package blockchain.blkchn;
+package blockchain.worker;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
