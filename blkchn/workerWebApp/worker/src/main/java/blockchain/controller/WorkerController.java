@@ -1,4 +1,4 @@
-package blockchain.worker.controller;
+package blockchain.controller;
 
 import java.io.IOException;
 
@@ -8,21 +8,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import blockchain.core.Worker;
-/* Http request:
- * params = {code: "puts 'Hello world from Docker Yeah!!!'"}.to_json
- * headers = {"Content-Type"=>"application/json"}
- * response = HTTParty.post('http://localhost:8080/cheers', body: params, headers: headers)
- */
-@RestController
+
 public class WorkerController {
   @Autowired
   Worker worker;
   
   @GetMapping("/mine")
-  public String homeInit(String[] args) {
+  public String Mine(String[] args) {
     //background job? If for any reason the services needs to be available for another queries maybe not.
     worker.mine();
-    return "true";
+    
+    return "Finish mining";
   }
   
   @GetMapping(value = "/balance")
