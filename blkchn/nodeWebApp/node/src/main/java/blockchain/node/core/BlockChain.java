@@ -1,5 +1,7 @@
 package blockchain.node.core;
 
+import java.util.List;
+
 public interface BlockChain {
   Block createBlock(String  prevHash, int nonce);
   
@@ -12,6 +14,8 @@ public interface BlockChain {
   Block getLastBlock();
   
   String getDifficulty();
+  
+  List<Transaction> getPendingTransactions();
   
   String prevBlocktoString(Block block);
   

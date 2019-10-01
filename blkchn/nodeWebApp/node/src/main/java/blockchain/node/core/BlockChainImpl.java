@@ -26,7 +26,7 @@ public class BlockChainImpl implements BlockChain{
   
   public Block createBlock(String  prevHash, int nonce) {
     int index = this.chain.size() + 1;
-    // here I can implement a pattern for add this list of parameters config or something
+
     Block newBlock =  new Block(
         index,
         this.pendingTransactions,
@@ -36,7 +36,7 @@ public class BlockChainImpl implements BlockChain{
     
     this.pendingTransactions = new ArrayList<Transaction>();
     
-    return newBlock;  // append new block when created? or after mined? or after approval ?
+    return newBlock;
   }
   
   public void addBlock(Block newBlock) {
@@ -51,6 +51,10 @@ public class BlockChainImpl implements BlockChain{
     return block;
   }
   
+  public List<Transaction> getPendingTransactions() {
+    return this.pendingTransactions;
+  }
+  
   public int getIndex() {
     return chain.size();
   }
@@ -61,10 +65,8 @@ public class BlockChainImpl implements BlockChain{
   
   public void addTransaction(Transaction newTransaction) {
     this.pendingTransactions.add(newTransaction);
-  //return self.last_block['index'] + 1 transaction will be added to next block (the one to be mined) index = this return
   }
   
-//I have doubts on the place for the PoW, should it belongs to the chain or the worker?
   public boolean validProofOfWork(int prevNonce, int nonce) {
     String hash     = Hashes.calculateHash("" + prevNonce + nonce + "");
     String hashTest =  hash.substring(0, 1);
@@ -72,7 +74,6 @@ public class BlockChainImpl implements BlockChain{
     try {
       Thread.sleep(100);
     } catch (InterruptedException e) {
-      // TODO Auto-generated catch block
       e.printStackTrace();
     }
     return (hashTest.equals(difficulty));

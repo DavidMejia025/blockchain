@@ -24,8 +24,7 @@ public class NodeController {
   @GetMapping("/init")
   public String nodeInit(String[] args) {
     BlockChain blockchain = node.getBlockChain();
-    
-    Block root = blockchain.getLastBlock();
+    Block      root       = blockchain.getLastBlock();
     
     return "Blockchain with root node that has previous hash eq = " + root.getPrevHash() + " was created";
   }
@@ -39,15 +38,6 @@ public class NodeController {
     
     Map<String, String> response = sayHello(); //Wy json object is not working on the client side?
     return response;
-  }
-  
-  @GetMapping
-  public Map<String, String> sayHello() {
-      HashMap<String, String> map = new HashMap<>();
-      map.put("key", "value");
-      map.put("foo", "bar");
-      map.put("aa", "bb");
-      return map;
   }
   
   @GetMapping("/last-nounce")
@@ -67,9 +57,14 @@ public class NodeController {
   public void postAddTransaction(@RequestBody String params) throws IOException, Exception {
     String[] transactionParams = parseJsonTransaction(params);
     
+    int value = Integer.parseInt(transactionParams[2]);
+    
+    node.addTransaction(transactionParams[0], transactionParams[1], value); //convert to has map?
+    
     System.out.println(transactionParams[1]);
   }
-  //Need to get a better way to parse any json sending the fields....
+  
+  //Need to get a better way to parse any json sending the fields.... ?
   private Integer parseJsonMine(String json) {
     JSONObject obj = new JSONObject(json);
     
@@ -85,5 +80,14 @@ public class NodeController {
     stringArray[2] = Integer.toString((int) obj.get("value"));
 
     return stringArray;
+  }
+  
+  @GetMapping
+  public Map<String, String> sayHello() {
+      HashMap<String, String> map = new HashMap<>();
+      map.put("key", "value");
+      map.put("foo", "bar");
+      map.put("aa", "bb");
+      return map;
   }
 }

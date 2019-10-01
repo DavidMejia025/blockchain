@@ -15,9 +15,10 @@ public class NodeImpl implements Node{
   public String getUrl() {
     return this.url;
   }
-  public void addTransaction(Transaction newTransaction) {
+  public void addTransaction(String sender, String receiver, int value) {
+    Transaction newTransaction = createTransaction(sender, receiver, value);
+    
     this.chain.addTransaction(newTransaction);
-  //return self.last_block['index'] + 1 transaction will be added to next block (the one to be mined) index = this return
   }
   
   public Transaction createTransaction(String sender, String receiver, int value) {
@@ -26,7 +27,6 @@ public class NodeImpl implements Node{
     return newTransaction;
   }
   
-  //mine block is to test poW until get the winner nonce.
   public JSONObject mineBlock(int nonce) {
     JSONObject response;
     
@@ -55,27 +55,6 @@ public class NodeImpl implements Node{
     System.out.println(response);
     
     return response;
-  }
-  
-  public int proofOfWork (Block prevBlock) {
-    boolean proofOfWorkResult;
-    boolean currentProofOfWork = false;
-    int     nonce = 0;
-    int     prevNonce = prevBlock.getNonce();
-    
-    while (currentProofOfWork == false) {
-      System.out.println("Currently minning a new block ");
-      
-      nonce += 1;
-      
-      proofOfWorkResult = this.chain.validProofOfWork(prevNonce, nonce);
-      
-      if (proofOfWorkResult == true) currentProofOfWork = true; 
-      //# We must receive a reward for finding the proof.
-      //# The sender is "0" to signify that this node has mined a new coin.
-    }
-    
-    return nonce;
   }
   
   public BlockChain getBlockChain() {

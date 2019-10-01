@@ -9,8 +9,6 @@ public class Block {
   private int                index;
   private Timestamp          timestamp;
   private List<Transaction>  transactions; 
-  //autowired
-  private List<Block>        blockChain;
   
   public Block(int index, List<Transaction> transactions, String  prevHash, int nonce) {
     this.index        = index;
@@ -29,7 +27,6 @@ public class Block {
   }
   
   public List<Transaction>  getTransactions() {
-    // will be enough with the transactions signature? or require the exact values?
     return this.transactions;
   }
   
