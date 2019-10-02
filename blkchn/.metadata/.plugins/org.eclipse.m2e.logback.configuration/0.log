@@ -1,2 +1,365 @@
 2019-09-27 17:38:02,729 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+<<<<<<< HEAD
 2019-10-02 10:47:23,621 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+=======
+2019-10-01 22:05:56,987 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2019-10-01 22:08:30,564 [Worker-19: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: blockchain:node:0.0.1-SNAPSHOT @ /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/pom.xml.
+2019-10-01 22:08:33,390 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:08:33,391 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:08:33,391 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:08:33,404 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:08:33,405 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-01 22:08:35,557 [Worker-12: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: blockchain:node:0.0.1-SNAPSHOT @ /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/pom.xml.
+2019-10-01 22:08:36,876 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:08:36,877 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:08:36,877 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:08:36,881 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:08:36,881 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-01 22:08:39,162 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:08:39,163 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:08:39,163 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:08:39,168 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:08:39,173 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-01 22:09:40,286 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:09:40,286 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:09:40,286 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:09:40,299 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:09:40,299 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-01 22:14:08,210 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:14:08,211 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:14:08,211 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:14:08,214 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:14:08,215 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-01 22:15:05,092 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:15:05,093 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:15:05,093 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:15:05,103 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:15:05,103 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-01 22:15:49,113 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:15:49,114 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:15:49,114 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:15:49,122 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:15:49,126 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-01 22:16:47,455 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:16:47,455 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:16:47,455 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:16:47,461 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:16:47,462 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-01 22:17:02,020 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:17:02,021 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:17:02,021 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:17:02,026 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:17:02,026 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-01 22:17:14,349 [Worker-18: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:17:14,353 [Worker-18: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:17:14,354 [Worker-18: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:17:14,361 [Worker-18: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:17:14,362 [Worker-18: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-01 22:18:00,931 [Worker-21: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2019-10-01 22:18:02,058 [Worker-21: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: blockchain:node:0.0.1-SNAPSHOT @ /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/pom.xml.
+2019-10-01 22:18:02,846 [Worker-21: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /node/src/main/java
+2019-10-01 22:18:02,847 [Worker-21: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /node/src/test/java
+2019-10-01 22:18:03,281 [Worker-21: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed: 2 sec
+2019-10-01 22:18:04,585 [Worker-18: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:18:04,586 [Worker-18: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:18:04,586 [Worker-18: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:18:04,590 [Worker-18: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:18:04,590 [Worker-18: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-01 22:18:32,739 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:18:32,746 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:18:32,746 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:18:32,749 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:18:32,749 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-01 22:20:19,425 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:20:19,425 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:20:19,425 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:20:19,428 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:20:19,429 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-01 22:22:56,685 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:22:56,687 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:22:56,693 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:22:56,700 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:22:56,700 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-01 22:23:03,332 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:23:03,333 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:23:03,333 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:23:03,342 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:23:03,342 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-01 22:23:24,179 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:23:24,180 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:23:24,180 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:23:24,187 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:23:24,189 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-01 22:23:39,669 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:23:39,669 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:23:39,669 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:23:39,672 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:23:39,673 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-01 22:24:02,439 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:24:02,439 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:24:02,439 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:24:02,457 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:24:02,461 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-01 22:24:22,601 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:24:22,601 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:24:22,601 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:24:22,608 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:24:22,608 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-01 22:24:28,274 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:24:28,274 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:24:28,274 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:24:28,276 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:24:28,277 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-01 22:29:14,174 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:29:14,176 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:29:14,179 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:29:14,184 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:29:14,185 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-01 22:29:31,804 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:29:31,804 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:29:31,805 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:29:31,808 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:29:31,808 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-01 22:30:08,435 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:30:08,435 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:30:08,435 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:30:08,441 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:30:08,441 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-01 22:30:24,428 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:30:24,428 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:30:24,428 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:30:24,431 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:30:24,431 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-01 22:30:29,458 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:30:29,458 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:30:29,458 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:30:29,464 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:30:29,465 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-01 22:30:57,877 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:30:57,877 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:30:57,878 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:30:57,883 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:30:57,883 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-01 22:31:21,943 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:31:21,943 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:31:21,943 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:31:21,953 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:31:21,953 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-01 22:32:37,283 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:32:37,283 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:32:37,283 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:32:37,291 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:32:37,292 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-01 22:37:11,242 [Worker-29: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:37:11,247 [Worker-29: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:37:11,247 [Worker-29: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:37:11,253 [Worker-29: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:37:11,253 [Worker-29: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-01 22:37:51,051 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:37:51,051 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:37:51,051 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:37:51,054 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:37:51,054 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-01 22:38:19,346 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:38:19,346 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:38:19,346 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:38:19,361 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:38:19,361 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-01 22:38:30,088 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:38:30,089 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:38:30,089 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:38:30,091 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:38:30,091 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-01 22:38:54,605 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:38:54,605 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:38:54,605 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:38:54,608 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:38:54,608 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-01 22:39:01,640 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:39:01,640 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:39:01,640 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:39:01,643 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:39:01,643 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-01 22:39:40,766 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:39:40,767 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:39:40,767 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:39:40,770 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:39:40,770 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-01 22:42:55,062 [Worker-30: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:42:55,062 [Worker-30: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:42:55,062 [Worker-30: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:42:55,068 [Worker-30: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:42:55,068 [Worker-30: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-01 22:45:27,618 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:45:27,618 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:45:27,619 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-01 22:45:27,622 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-01 22:45:27,627 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-02 09:09:12,071 [Worker-43: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-02 09:09:12,071 [Worker-43: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-02 09:09:12,072 [Worker-43: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-02 09:09:12,075 [Worker-43: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-02 09:09:12,075 [Worker-43: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-02 09:10:04,980 [Worker-49: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-02 09:10:04,981 [Worker-49: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-02 09:10:04,981 [Worker-49: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-02 09:10:04,984 [Worker-49: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-02 09:10:04,984 [Worker-49: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-02 09:10:55,372 [Worker-49: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-02 09:10:55,372 [Worker-49: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-02 09:10:55,372 [Worker-49: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-02 09:10:55,375 [Worker-49: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-02 09:10:55,375 [Worker-49: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-02 09:11:29,508 [Worker-49: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-02 09:11:29,508 [Worker-49: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-02 09:11:29,508 [Worker-49: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-02 09:11:29,511 [Worker-49: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-02 09:11:29,512 [Worker-49: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-02 09:12:36,271 [Worker-43: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-02 09:12:36,271 [Worker-43: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-02 09:12:36,272 [Worker-43: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-02 09:12:36,274 [Worker-43: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-02 09:12:36,274 [Worker-43: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-02 09:15:41,058 [Worker-50: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-02 09:15:41,058 [Worker-50: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-02 09:15:41,058 [Worker-50: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-02 09:15:41,060 [Worker-50: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-02 09:15:41,061 [Worker-50: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-02 09:16:08,103 [Worker-53: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-02 09:16:08,103 [Worker-53: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-02 09:16:08,103 [Worker-53: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-02 09:16:08,105 [Worker-53: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-02 09:16:08,106 [Worker-53: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-02 09:16:10,549 [Worker-53: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-02 09:16:10,549 [Worker-53: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-02 09:16:10,549 [Worker-53: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-02 09:16:10,556 [Worker-53: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-02 09:16:10,556 [Worker-53: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-02 09:16:17,739 [Worker-43: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-02 09:16:17,740 [Worker-43: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-02 09:16:17,740 [Worker-43: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-02 09:16:17,750 [Worker-43: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-02 09:16:17,750 [Worker-43: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-02 09:16:21,859 [Worker-52: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-02 09:16:21,859 [Worker-52: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-02 09:16:21,859 [Worker-52: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-02 09:16:21,861 [Worker-52: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-02 09:16:21,862 [Worker-52: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-02 09:17:07,764 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-02 09:17:07,764 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-02 09:17:07,765 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-02 09:17:07,768 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-02 09:17:07,768 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-02 09:17:56,630 [Worker-50: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-02 09:17:56,630 [Worker-50: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-02 09:17:56,630 [Worker-50: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-02 09:17:56,633 [Worker-50: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-02 09:17:56,634 [Worker-50: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-02 09:18:11,604 [Worker-46: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-02 09:18:11,605 [Worker-46: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-02 09:18:11,605 [Worker-46: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-02 09:18:11,609 [Worker-46: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-02 09:18:11,613 [Worker-46: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-02 09:18:18,424 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-02 09:18:18,424 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-02 09:18:18,424 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-02 09:18:18,430 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-02 09:18:18,430 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-02 09:18:23,947 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-02 09:18:23,947 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-02 09:18:23,947 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-02 09:18:23,950 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-02 09:18:23,950 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-02 09:18:31,520 [Worker-52: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-02 09:18:31,520 [Worker-52: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-02 09:18:31,520 [Worker-52: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-02 09:18:31,525 [Worker-52: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-02 09:18:31,525 [Worker-52: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-02 09:18:39,555 [Worker-50: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-02 09:18:39,555 [Worker-50: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-02 09:18:39,555 [Worker-50: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-02 09:18:39,557 [Worker-50: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-02 09:18:39,557 [Worker-50: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-02 09:18:47,906 [Worker-50: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-02 09:18:47,906 [Worker-50: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-02 09:18:47,906 [Worker-50: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-02 09:18:47,908 [Worker-50: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-02 09:18:47,909 [Worker-50: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-02 09:19:43,121 [Worker-43: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-02 09:19:43,121 [Worker-43: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-02 09:19:43,121 [Worker-43: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/main/resources
+2019-10-02 09:19:43,124 [Worker-43: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-02 09:19:43,124 [Worker-43: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp/node/src/test/resources
+2019-10-02 09:20:21,251 [Worker-53: Updating Maven Dependencies] ERROR o.e.m.j.i.l.MavenLaunchConfigurationListener - Launch configuration Main references closed project node
+org.eclipse.core.runtime.CoreException: Launch configuration Main references closed project node
+	at org.eclipse.jdt.launching.JavaRuntime.abort(JavaRuntime.java:1838) ~[na:na]
+	at org.eclipse.jdt.launching.JavaRuntime.getJavaProject(JavaRuntime.java:1710) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.launch.MavenLaunchConfigurationListener.updateLaunchConfiguration(MavenLaunchConfigurationListener.java:53) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.launch.MavenLaunchConfigurationListener.launchConfigurationChanged(MavenLaunchConfigurationListener.java:38) ~[na:na]
+	at org.eclipse.debug.internal.core.LaunchManager$ConfigurationNotifier.run(LaunchManager.java:225) ~[na:na]
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45) ~[org.eclipse.equinox.common_3.10.400.v20190516-1504.jar:na]
+	at org.eclipse.debug.internal.core.LaunchManager$ConfigurationNotifier.notify(LaunchManager.java:209) ~[na:na]
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.setDirty(LaunchConfigurationWorkingCopy.java:528) ~[na:na]
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.setAttribute(LaunchConfigurationWorkingCopy.java:416) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.launch.MavenRuntimeClasspathProvider.disable(MavenRuntimeClasspathProvider.java:352) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.launch.MavenRuntimeClasspathProvider.disable(MavenRuntimeClasspathProvider.java:378) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.launch.MavenLaunchConfigurationListener.mavenProjectChanged(MavenLaunchConfigurationListener.java:70) ~[na:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.notifyProjectChangeListeners(ProjectRegistryManager.java:825) ~[na:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.applyMutableProjectRegistry(ProjectRegistryManager.java:989) ~[na:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryRefreshJob.lambda$0(ProjectRegistryRefreshJob.java:147) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:177) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:151) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:1374) ~[na:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryRefreshJob.run(ProjectRegistryRefreshJob.java:82) ~[na:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63) ~[org.eclipse.core.jobs_3.10.400.v20190506-1457.jar:na]
+2019-10-02 09:20:21,259 [Worker-53: Updating Maven Dependencies] ERROR o.e.m.j.i.l.MavenLaunchConfigurationListener - Launch configuration Main references closed project node
+org.eclipse.core.runtime.CoreException: Launch configuration Main references closed project node
+	at org.eclipse.jdt.launching.JavaRuntime.abort(JavaRuntime.java:1838) ~[na:na]
+	at org.eclipse.jdt.launching.JavaRuntime.getJavaProject(JavaRuntime.java:1710) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.launch.MavenLaunchConfigurationListener.updateLaunchConfiguration(MavenLaunchConfigurationListener.java:53) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.launch.MavenLaunchConfigurationListener.launchConfigurationChanged(MavenLaunchConfigurationListener.java:38) ~[na:na]
+	at org.eclipse.debug.internal.core.LaunchManager$ConfigurationNotifier.run(LaunchManager.java:225) ~[na:na]
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45) ~[org.eclipse.equinox.common_3.10.400.v20190516-1504.jar:na]
+	at org.eclipse.debug.internal.core.LaunchManager$ConfigurationNotifier.notify(LaunchManager.java:209) ~[na:na]
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.setDirty(LaunchConfigurationWorkingCopy.java:528) ~[na:na]
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.setAttribute(LaunchConfigurationWorkingCopy.java:416) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.launch.MavenRuntimeClasspathProvider.disable(MavenRuntimeClasspathProvider.java:353) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.launch.MavenRuntimeClasspathProvider.disable(MavenRuntimeClasspathProvider.java:378) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.launch.MavenLaunchConfigurationListener.mavenProjectChanged(MavenLaunchConfigurationListener.java:70) ~[na:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.notifyProjectChangeListeners(ProjectRegistryManager.java:825) ~[na:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.applyMutableProjectRegistry(ProjectRegistryManager.java:989) ~[na:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryRefreshJob.lambda$0(ProjectRegistryRefreshJob.java:147) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:177) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:151) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:1374) ~[na:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryRefreshJob.run(ProjectRegistryRefreshJob.java:82) ~[na:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63) ~[org.eclipse.core.jobs_3.10.400.v20190506-1457.jar:na]
+2019-10-02 09:20:21,275 [Worker-53: Updating Maven Dependencies] ERROR o.e.m.j.i.l.MavenLaunchConfigurationListener - Launch configuration Main references closed project node
+org.eclipse.core.runtime.CoreException: Launch configuration Main references closed project node
+	at org.eclipse.jdt.launching.JavaRuntime.abort(JavaRuntime.java:1838) ~[na:na]
+	at org.eclipse.jdt.launching.JavaRuntime.getJavaProject(JavaRuntime.java:1710) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.launch.MavenLaunchConfigurationListener.updateLaunchConfiguration(MavenLaunchConfigurationListener.java:53) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.launch.MavenLaunchConfigurationListener.launchConfigurationChanged(MavenLaunchConfigurationListener.java:38) ~[na:na]
+	at org.eclipse.debug.internal.core.LaunchManager$ConfigurationNotifier.run(LaunchManager.java:225) ~[na:na]
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45) ~[org.eclipse.equinox.common_3.10.400.v20190516-1504.jar:na]
+	at org.eclipse.debug.internal.core.LaunchManager$ConfigurationNotifier.notify(LaunchManager.java:209) ~[na:na]
+	at org.eclipse.debug.internal.core.LaunchManager.launchConfigurationChanged(LaunchManager.java:2151) ~[na:na]
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.writeNewFile(LaunchConfigurationWorkingCopy.java:381) ~[na:na]
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.doSave0(LaunchConfigurationWorkingCopy.java:258) ~[na:na]
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.doSave(LaunchConfigurationWorkingCopy.java:228) ~[na:na]
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.doSave(LaunchConfigurationWorkingCopy.java:186) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.launch.MavenRuntimeClasspathProvider.disable(MavenRuntimeClasspathProvider.java:354) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.launch.MavenRuntimeClasspathProvider.disable(MavenRuntimeClasspathProvider.java:378) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.launch.MavenLaunchConfigurationListener.mavenProjectChanged(MavenLaunchConfigurationListener.java:70) ~[na:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.notifyProjectChangeListeners(ProjectRegistryManager.java:825) ~[na:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.applyMutableProjectRegistry(ProjectRegistryManager.java:989) ~[na:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryRefreshJob.lambda$0(ProjectRegistryRefreshJob.java:147) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:177) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:151) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:1374) ~[na:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryRefreshJob.run(ProjectRegistryRefreshJob.java:82) ~[na:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63) ~[org.eclipse.core.jobs_3.10.400.v20190506-1457.jar:na]
+>>>>>>> node
