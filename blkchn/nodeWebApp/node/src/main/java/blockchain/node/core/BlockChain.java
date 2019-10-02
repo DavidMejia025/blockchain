@@ -20,7 +20,7 @@ public interface BlockChain {
   
   String prevBlocktoString(Block block);
   
-  Map<String, String> mineBlock(int nonce);
+  Map<String, Boolean> mineBlock(int nonce);
   
   void addTransaction(String sender, String receiver, int value);
 }

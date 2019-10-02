@@ -13,14 +13,15 @@ import org.springframework.web.bind.annotation.RestController;
 import blockchain.node.core.Block;
 import blockchain.node.core.BlockChain;
 import blockchain.node.core.Node;
-
+import blockchain.node.utils.Logs;
 
 @RestController
 public class NodeController {
   @Autowired
   Node node;
-  
   //BlockChain blockchain = node.getBlockChain() ; //should be improved with setter DI 
+  @Autowired
+  Logs logs;
   
   @GetMapping("/init")
   public String nodeInit(String[] args) {
@@ -31,14 +32,12 @@ public class NodeController {
   }
   
   @PostMapping(value = "/mine", headers="Accept=application/json", consumes = "application/JSON")
-  public Map<String, String>  postMine(@RequestBody String params) throws IOException, Exception {
-	  System.out.println("ffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-	  System.out.println(params);
+  public Map<String, Boolean> postMine(@RequestBody String params) throws IOException, Exception {
     int nonce = parseJsonMine(params);
     
     BlockChain blockchain = node.getBlockChain();
     
-    Map<String, String> response = blockchain.mineBlock(nonce);
+    Map<String, Boolean> response = blockchain.mineBlock(nonce);
     
     return response;
   }

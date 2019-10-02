@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import blockchain.node.core.BlockChain;
 import blockchain.node.core.BlockChainImpl;
 import blockchain.node.core.Node;
+import blockchain.node.utils.Logs;
 
 @Configuration
 public class Config {
@@ -17,5 +18,10 @@ public class Config {
   @Bean
   public BlockChain BlockChainBean() {
     return new BlockChainImpl();
+  }
+  
+  @Bean
+  public Logs LogsBean() {
+	return new Logs();
   }
 }

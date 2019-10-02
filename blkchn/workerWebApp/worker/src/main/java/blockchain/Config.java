@@ -1,14 +1,13 @@
 package blockchain;
 
-import java.awt.PageAttributes.MediaType;
 import java.util.Collections;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpHeaders;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import blockchain.core.Worker;
+import blockchain.utils.Logs;
 
 @Configuration
 public class Config {
@@ -28,5 +27,10 @@ public class Config {
 		  .build();
 	  
 	  return client;  
+  }
+  
+  @Bean
+  public Logs LogsBean() {
+	return new Logs();
   }
 }

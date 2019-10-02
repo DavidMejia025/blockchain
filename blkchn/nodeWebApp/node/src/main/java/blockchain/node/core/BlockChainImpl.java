@@ -70,8 +70,8 @@ public class BlockChainImpl implements BlockChain{
     this.pendingTransactions.add(newTransaction);
   }
   
-  public Map<String, String> mineBlock(int nonce) {
-	Map<String, String> response;
+  public Map<String, Boolean> mineBlock(int nonce) {
+	Map<String, Boolean> response;
 	
     Block prevBlock = getLastBlock();
     
@@ -83,14 +83,10 @@ public class BlockChainImpl implements BlockChain{
       
       addBlock(newBlock);
       
-      response = buildResponse("created", newBlock.getIndex());
+      response = buildResponse(true);
     }else {
-      response = buildResponse("failed", -1);
+      response = buildResponse(false);
     }
-    
-    System.out.println(nonce);
-    System.out.println(proveOfWorkResult);
-    System.out.println(response);
     
     return response;
   }
@@ -104,6 +100,7 @@ public class BlockChainImpl implements BlockChain{
     } catch (InterruptedException e) {
       e.printStackTrace();
     }
+    
     return (hashTest.equals(difficulty));
   }
   
@@ -123,14 +120,11 @@ public class BlockChainImpl implements BlockChain{
     return true;
   }
   
-  public Map<String, String> buildResponse(String status, int index) {
-      String blockId = Integer.toString(index);
-      
-	  HashMap<String, String> map = new HashMap<>();
-      
-      map.put("status", status);
-      map.put("blockId", blockId);
-      
-      return map;
+  public Map<String, Boolean> buildResponse(boolean status) { 
+	HashMap<String, Boolean> map = new HashMap<>();
+  
+    map.put("result", status);
+  
+    return map;
   }
 }
