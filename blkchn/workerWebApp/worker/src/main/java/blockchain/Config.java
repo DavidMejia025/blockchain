@@ -1,0 +1,32 @@
+package blockchain;
+
+import java.awt.PageAttributes.MediaType;
+import java.util.Collections;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpHeaders;
+import org.springframework.web.reactive.function.client.WebClient;
+
+import blockchain.core.Worker;
+
+@Configuration
+public class Config {
+  @Bean
+  public Worker WorkerBean() {
+    return new Worker("http://localhost:8082");
+  }
+  
+  @Bean
+  public WebClient WebCLientBean() { //refresh DI constructor to pass arguments such as url. and also what if i want to create two or more Webclient beans
+	  WebClient client = WebClient
+		  .builder()
+		    .baseUrl("http://localhost:8082")
+		    .defaultCookie("cookieKey", "cookieValue")
+		    .defaultHeader(HttpHeaders.CONTENT_TYPE, "application/json") 
+		    .defaultUriVariables(Collections.singletonMap("url", "http://localhost:8082"))
+		  .build();
+	  
+	  return client;  
+  }
+}
