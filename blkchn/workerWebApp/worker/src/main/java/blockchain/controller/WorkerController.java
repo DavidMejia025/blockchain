@@ -15,7 +15,8 @@ public class WorkerController {
   
   @GetMapping("/mine")
   public String Mine(String[] args) {
-    //background job? If for any reason the services needs to be available for another queries maybe not.
+    // background job? If for any reason the services needs to be available for another queries such as balance?
+	// maybe not.
     worker.mine();
     
     return "Finish mining";
