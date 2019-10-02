@@ -3,6 +3,7 @@ package blockchain.core;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -102,11 +103,17 @@ public class Worker  {
 	//LinkedMultiValueMap<String, Integer> params = new LinkedMultiValueMap();
 	    
     //params.add("nonce", nonce);
-    JSONObject params = new JSONObject();
+	
+    //JSONObject params = new JSONObject();
     
-    params.put("nonce", nonce);
+    //params.put("nonce", nonce);
     //BodyInserters.FormInserter<Object> bodyInserter = BodyInserters.fromObject(params);
+	HashMap<String, Integer> params = new HashMap<>();
+	      
+	params.put("nonce", nonce);
+	
     System.out.println("  Send request mine");
+    System.out.println(params);
     String result = client.post()
 		     .uri("/mine")
 		     .body(BodyInserters.fromObject(params))

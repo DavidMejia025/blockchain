@@ -32,6 +32,8 @@ public class NodeController {
   
   @PostMapping(value = "/mine", headers="Accept=application/json", consumes = "application/JSON")
   public Map<String, String>  postMine(@RequestBody String params) throws IOException, Exception {
+	  System.out.println("ffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
+	  System.out.println(params);
     int nonce = parseJsonMine(params);
     
     BlockChain blockchain = node.getBlockChain();
