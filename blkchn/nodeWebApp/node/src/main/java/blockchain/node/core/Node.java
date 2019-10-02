@@ -1,11 +1,16 @@
 package blockchain.node.core;
 
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 
-public interface Node {
-  BlockChain getBlockChain();
+public class Node{
+  private String  url;
+  @Autowired
+  public  BlockChain chain;
+
+  public Node() {}
   
-  JSONObject mineBlock(int nonce);
-  
-  void addTransaction(String sender, String receiver, int value);
+  public BlockChain getBlockChain() {
+    return this.chain;
+  }
 }

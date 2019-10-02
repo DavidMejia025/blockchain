@@ -1,7 +1,11 @@
 package blockchain.node.core;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import org.json.JSONObject;
 
 import blockchain.node.utils.Hashes;
 
@@ -45,8 +49,7 @@ public class BlockChainImpl implements BlockChain{
   
   public Block getLastBlock() {
     int   lenght = chain.size();
-
-    Block block = chain.get(lenght - 1);
+    Block block  = chain.get(lenght - 1);
           
     return block;
   }
@@ -63,8 +66,35 @@ public class BlockChainImpl implements BlockChain{
     return this.difficulty;
   }
   
-  public void addTransaction(Transaction newTransaction) {
+  public void addTransaction(String sender, String receiver, int value) {
+	Transaction newTransaction = new Transaction(sender, receiver, value);
+	
     this.pendingTransactions.add(newTransaction);
+  }
+  
+  public Map<String, String> mineBlock(int nonce) {
+	Map<String, String> response;
+	
+    Block prevBlock = getLastBlock();
+    
+    boolean proveOfWorkResult = validProofOfWork(prevBlock.getNonce(), nonce);
+    
+    if (proveOfWorkResult) {
+      String prevHash = prevBlocktoString(prevBlock); //this should not be a property of the Node?
+      Block  newBlock = createBlock(prevHash, nonce);
+      
+      addBlock(newBlock);
+      
+      response = buildResponse("created", newBlock.getIndex());
+    }else {
+      response = buildResponse("failed", -1);
+    }
+    
+    System.out.println(nonce);
+    System.out.println(proveOfWorkResult);
+    System.out.println(response);
+    
+    return response;
   }
   
   public boolean validProofOfWork(int prevNonce, int nonce) {
@@ -93,5 +123,16 @@ public class BlockChainImpl implements BlockChain{
   
   public boolean validChain() {
     return true;
+  }
+  
+  public Map<String, String> buildResponse(String status, int index) {
+      String blockId = Integer.toString(index);
+      
+	  HashMap<String, String> map = new HashMap<>();
+      
+      map.put("status", status);
+      map.put("blockId", blockId);
+      
+      return map;
   }
 }

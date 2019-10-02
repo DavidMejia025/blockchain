@@ -21,9 +21,11 @@ public class NodeController {
   @Autowired
   Node node;
   
+  //BlockChain blockchain = node.getBlockChain() ; //should be improved with setter DI 
+  
   @GetMapping("/init")
   public String nodeInit(String[] args) {
-    BlockChain blockchain = node.getBlockChain();
+	BlockChain blockchain = node.getBlockChain();
     Block      root       = blockchain.getLastBlock();
     
     return "Blockchain with root node that has previous hash eq = " + root.getPrevHash() + " was created";
@@ -33,16 +35,18 @@ public class NodeController {
   public Map<String, String>  postMine(@RequestBody String params) throws IOException, Exception {
     int nonce = parseJsonMine(params);
     
-    JSONObject response1 = node.mineBlock(nonce);
-    System.out.println(response1);
+    BlockChain blockchain = node.getBlockChain();
     
-    Map<String, String> response = sayHello(); //Wy json object is not working on the client side?
+    Map<String, String> response = blockchain.mineBlock(nonce);
+    System.out.println(response);
+    
+    //Map<String, String> response = sayHello(); //Wy json object is not working on the client side?
     return response;
   }
   
-  @GetMapping("/last-nounce")
+  @GetMapping("/last-nonce")
   public String getLastNounce(String[] args) {
-    BlockChain blockchain = node.getBlockChain();
+	BlockChain blockchain = node.getBlockChain();
     Block      root       = blockchain.getLastBlock();
     
     JSONObject json = new JSONObject();
@@ -57,14 +61,15 @@ public class NodeController {
   public void postAddTransaction(@RequestBody String params) throws IOException, Exception {
     String[] transactionParams = parseJsonTransaction(params);
     
+    BlockChain blockchain = node.getBlockChain();
+    
     int value = Integer.parseInt(transactionParams[2]);
     
-    node.addTransaction(transactionParams[0], transactionParams[1], value); //convert to has map?
+    blockchain.addTransaction(transactionParams[0], transactionParams[1], value); //convert to has map?
     
     System.out.println(transactionParams[1]);
   }
   
-  //Need to get a better way to parse any json sending the fields.... ?
   private Integer parseJsonMine(String json) {
     JSONObject obj = new JSONObject(json);
     
@@ -82,7 +87,7 @@ public class NodeController {
     return stringArray;
   }
   
-  @GetMapping
+  /*@GetMapping
   public Map<String, String> sayHello() {
       HashMap<String, String> map = new HashMap<>();
       map.put("key", "value");
@@ -90,4 +95,13 @@ public class NodeController {
       map.put("aa", "bb");
       return map;
   }
+  
+  private JSONObject buildResponse(String status, int index) { // This kind of things made me think to pass this to a service package
+	    JSONObject response = new JSONObject();
+	    
+	    response.put("status", status);
+	    response.put("blockId", Integer.toString(index));
+	    
+	    return response;
+	  }*/
 }

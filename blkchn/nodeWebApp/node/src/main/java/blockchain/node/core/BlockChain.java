@@ -1,6 +1,7 @@
 package blockchain.node.core;
 
 import java.util.List;
+import java.util.Map;
 
 public interface BlockChain {
   Block createBlock(String  prevHash, int nonce);
@@ -19,5 +20,7 @@ public interface BlockChain {
   
   String prevBlocktoString(Block block);
   
-  void addTransaction(Transaction newTransaction);
+  Map<String, String> mineBlock(int nonce);
+  
+  void addTransaction(String sender, String receiver, int value);
 }
