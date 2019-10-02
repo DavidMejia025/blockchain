@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete element from project &apos;node&apos;&#x0A;- Original project: &apos;node&apos;&#x0A;- Original element: &apos;blockchain.node.core.Node.java&apos;" description="Delete element" element1="/src\/main\/java&lt;blockchain.node.core{Node.java" elements="1" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1569986207091" subPackages="false" version="1.0"/>
+</session>
