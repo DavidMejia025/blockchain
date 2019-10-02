@@ -5,13 +5,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.json.JSONObject;
-
 import blockchain.node.utils.Hashes;
 
 public class BlockChainImpl implements BlockChain{
   public  List<Block> chain = new ArrayList<Block>();
   private List<Transaction> pendingTransactions = new ArrayList<Transaction>();
+  private final int rootNonce = 100;
   String difficulty = "0";
   
   public BlockChainImpl() {
@@ -19,11 +18,10 @@ public class BlockChainImpl implements BlockChain{
     
     String prevHash = Hashes.calculateHash("0");
     
-    Transaction firstTransaction = new Transaction("0", "1", 1); // who owns this Coin?
+    //Transaction firstTransaction = new Transaction("0", "1", 1); // who owns this Coin?  On hold for the moment
+    //pendingTransactions.add(firstTransaction);
     
-    pendingTransactions.add(firstTransaction);
-    
-    Block root = createBlock(prevHash, 100);
+    Block root = createBlock(prevHash, rootNonce);
 
     this.chain.add(root); 
   }
@@ -59,7 +57,7 @@ public class BlockChainImpl implements BlockChain{
   }
   
   public int getIndex() {
-    return chain.size();
+    return this.chain.size();
   }
   
   public String getDifficulty() {

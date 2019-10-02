@@ -1,7 +1,6 @@
 package blockchain.node.controller;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
 
 import org.json.JSONObject;
@@ -38,9 +37,7 @@ public class NodeController {
     BlockChain blockchain = node.getBlockChain();
     
     Map<String, String> response = blockchain.mineBlock(nonce);
-    System.out.println(response);
     
-    //Map<String, String> response = sayHello(); //Wy json object is not working on the client side?
     return response;
   }
   
@@ -66,8 +63,6 @@ public class NodeController {
     int value = Integer.parseInt(transactionParams[2]);
     
     blockchain.addTransaction(transactionParams[0], transactionParams[1], value); //convert to has map?
-    
-    System.out.println(transactionParams[1]);
   }
   
   private Integer parseJsonMine(String json) {
@@ -86,16 +81,8 @@ public class NodeController {
 
     return stringArray;
   }
-  
-  /*@GetMapping
-  public Map<String, String> sayHello() {
-      HashMap<String, String> map = new HashMap<>();
-      map.put("key", "value");
-      map.put("foo", "bar");
-      map.put("aa", "bb");
-      return map;
-  }
-  
+  /*
+   * Return a JSON object (but is not working) or an POO object?
   private JSONObject buildResponse(String status, int index) { // This kind of things made me think to pass this to a service package
 	    JSONObject response = new JSONObject();
 	    
