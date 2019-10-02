@@ -21,9 +21,9 @@ public class Config {
   public WebClient WebCLientBean() { //refresh DI constructor to pass arguments such as url. and also what if i want to create two or more Webclient beans
 	  WebClient client = WebClient
 		  .builder()
-		    .baseUrl("http://localhost:8082")
+		    .baseUrl("http://localhost:8080")
 		    .defaultCookie("cookieKey", "cookieValue")
-		    .defaultHeader(HttpHeaders.CONTENT_TYPE, "application/json") 
+		    //.defaultHeader(HttpHeaders.CONTENT_TYPE, "application/json") 
 		    .defaultUriVariables(Collections.singletonMap("url", "http://localhost:8082"))
 		  .build();
 	  
