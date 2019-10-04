@@ -1,18 +1,14 @@
 package client.CLA;
 
 import java.io.BufferedReader;
-import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 import client.CLA.utils.Logs;
-import client.CLA.utils.ParameterStringBuilder;
 
 public class Client {
     public static void main( String[] args ) throws IOException {
@@ -89,23 +85,25 @@ public class Client {
     public static void sendTransaction(Logs logs, String sender, String recipent, String value) throws IOException {
     	URL url;
     	
-		try {
+		//try {
 			url = new URL("http://example.com");
+			
+			url = new URL("http://localhost:8080/add-transaction");
+			
 			HttpURLConnection con = (HttpURLConnection) url.openConnection();
+			
 			con.setRequestProperty("Content-Type", "application/json");
 			con.setRequestMethod("POST");
-			
-			Map<String, String> parameters = new HashMap<String, String>();
-			
-			parameters.put("sender", sender);
-			parameters.put("recipent", recipent);
-			parameters.put("value", value);
-			
 			con.setDoOutput(true);
-			DataOutputStream out = new DataOutputStream(con.getOutputStream());
-			out.writeBytes(ParameterStringBuilder.getParamsString(parameters));
-			out.flush();
-			out.close();
+			
+			String jsonInputString = "{ \"sender\": \""+ sender +
+			  "\", \"receiver\": \"" + recipent +
+			  "\", \"value\": \"" + value + "\"}";
+			
+			OutputStream os = con.getOutputStream();
+		    
+			byte[] input = jsonInputString.getBytes("utf-8");
+		    os.write(input, 0, input.length);    
 			
 			int status = con.getResponseCode();
 			
@@ -121,10 +119,10 @@ public class Client {
 			
 			in.close();
 			con.disconnect();
-		} catch (MalformedURLException e) {
+		/*} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
     }
     
     public static String askUserInformation(Logs logs, String msj) {
