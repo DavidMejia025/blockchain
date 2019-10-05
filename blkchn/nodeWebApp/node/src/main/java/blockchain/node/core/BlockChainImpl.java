@@ -5,9 +5,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import blockchain.node.utils.Hashes;
+import blockchain.node.utils.Lists;
+import blockchain.node.utils.Logs;
 
 public class BlockChainImpl implements BlockChain{
+  @Autowired
+  Logs logs;
+  @Autowired
+  Lists list;
+  
   public  List<Block> chain = new ArrayList<Block>();
   private List<Transaction> pendingTransactions = new ArrayList<Transaction>();
   private final int rootNonce = 100;
@@ -70,7 +79,7 @@ public class BlockChainImpl implements BlockChain{
     this.pendingTransactions.add(newTransaction);
   }
   
-  public Map<String, Boolean> mineBlock(int nonce) {
+  public Map<String, Boolean> mineBlock(int nonce, String workerAddress) {
 	Map<String, Boolean> response;
 	
     Block prevBlock = getLastBlock();
@@ -78,10 +87,25 @@ public class BlockChainImpl implements BlockChain{
     boolean proveOfWorkResult = validProofOfWork(prevBlock.getNonce(), nonce);
     
     if (proveOfWorkResult) {
-      String prevHash = prevBlocktoString(prevBlock); //this should not be a property of the Node?
+      String prevHash = prevBlocktoString(prevBlock);
+      prevHash = Hashes.calculateHash(prevHash);
+      
+      addTransaction("!@#$1234 on the hose 1234!@# ", workerAddress, 25);
+      addTransaction("!@#$1234 on the hose 1234!@# ", workerAddress, 25);
+      
       Block  newBlock = createBlock(prevHash, nonce);
       
       addBlock(newBlock);
+      
+      logs.addBlankLine();
+      logs.addLog("New block created:  ");
+      logs.addLog("Previews hash: " + newBlock.getPrevHash());
+      logs.addLog("And contains the following transactions:");
+      logs.addBlankLine();
+      
+      List<Transaction> transactionsAppended = newBlock.getTransactions();
+     
+      list.printOutTransactions(transactionsAppended);
       
       response = buildResponse(true);
     }else {
@@ -107,7 +131,7 @@ public class BlockChainImpl implements BlockChain{
   public String prevBlocktoString(Block block) {
     String blockString = "" +
         block.getIndex() +
-        block.getTransactions() +
+        list.transactionsToString(block.getTransactions()) +
         block.getTimestamp() +
         block.getHash() +
         block.getNonce() +

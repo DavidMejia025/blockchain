@@ -8,7 +8,10 @@ public class Logs {
   public Logs(){
     this.addLog("Log system start...");
   }
-
+  public void addBlankLine() {
+	  System.out.println(" ");
+  }
+  
   public void addLog(String msj) {
     System.out.println(preMessage() + msj + postMessage());
   }

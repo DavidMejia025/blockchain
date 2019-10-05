@@ -15,12 +15,14 @@ import blockchain.utils.Logs;
 public class Worker  {
   List<String> nodeUrls   = new ArrayList<String>();
   String       difficulty = "0"; // get this from node
+  String       address;
   @Autowired
   WebClient client;
   @Autowired
   Logs logs;
   
   public Worker(String url) {
+	this.address = "123!@#PublicKeyWorker1sd@#$G234";
     this.nodeUrls.add(url); //need to be a loop on list if nodeUrls > 0
   }
   
@@ -93,16 +95,17 @@ public class Worker  {
   }
   
   private String sendMineRequest(int nonce) {
-	HashMap<String, Integer> params = new HashMap<>();
-	      
-	params.put("nonce", nonce);
+	HashMap<String, String> params = new HashMap<>();
+	
+	params.put("address", this.address);
+	params.put("nonce", Integer.toString(nonce));
 	
     String result = client.post()
-		     .uri("/mine")
-		     .body(BodyInserters.fromObject(params))
-		     .retrieve()
-		     .bodyToMono(String.class)
-		     .block();
+     .uri("/mine")
+     .body(BodyInserters.fromObject(params))
+     .retrieve()
+     .bodyToMono(String.class)
+     .block();
 
     return result;
   }

@@ -1,6 +1,7 @@
 package blockchain.node.controller;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 import org.json.JSONObject;
@@ -13,12 +14,16 @@ import org.springframework.web.bind.annotation.RestController;
 import blockchain.node.core.Block;
 import blockchain.node.core.BlockChain;
 import blockchain.node.core.Node;
+import blockchain.node.core.Transaction;
+import blockchain.node.utils.Lists;
 import blockchain.node.utils.Logs;
 
 @RestController
 public class NodeController {
   @Autowired
   Node node;
+  @Autowired
+  Lists list;
   //BlockChain blockchain = node.getBlockChain() ; //should be improved with setter DI 
   @Autowired
   Logs logs;
@@ -33,11 +38,13 @@ public class NodeController {
   
   @PostMapping(value = "/mine", headers="Accept=application/json", consumes = "application/JSON")
   public Map<String, Boolean> postMine(@RequestBody String params) throws IOException, Exception {
-    int nonce = parseJsonMine(params);
+    String[] mineParams = parseJsonMine(params);
+    
+    logs.addLog("receiving a new nonce: " + mineParams[1] + "from: " + mineParams[0]);
     
     BlockChain blockchain = node.getBlockChain();
     
-    Map<String, Boolean> response = blockchain.mineBlock(nonce);
+    Map<String, Boolean> response = blockchain.mineBlock(Integer.parseInt(mineParams[1]), mineParams[0]);
     
     return response;
   }
@@ -45,12 +52,32 @@ public class NodeController {
   @GetMapping("/last-nonce")
   public String getLastNounce(String[] args) {
 	BlockChain blockchain = node.getBlockChain();
-    Block      root       = blockchain.getLastBlock();
+    Block      block       = blockchain.getLastBlock();
     
     JSONObject json = new JSONObject();
     
     json.put("difficulty", blockchain.getDifficulty());
-    json.put("nonce", root.getNonce());
+    json.put("nonce", block.getNonce());
+    
+    return json.toString();
+  }
+  
+  @GetMapping("/blockchain-info")
+  public String getBlockChainInfo(String[] args) {
+	BlockChain blockchain = node.getBlockChain();
+    Block      block       = blockchain.getLastBlock();
+    
+    logs.addLog("BlockChain length: " + blockchain.getIndex());
+    logs.addLog("Previews hash: " + block.getPrevHash());
+    
+    List<Transaction> pendingTransactions = blockchain.getPendingTransactions();
+    
+    list.printOutTransactions(pendingTransactions);
+    
+    JSONObject json = new JSONObject();
+    
+    json.put("BlockChain length", blockchain.getIndex());
+    json.put("previeus hash",     block.getPrevHash());
     
     return json.toString();
   }
@@ -64,12 +91,24 @@ public class NodeController {
     int value = Integer.parseInt(transactionParams[2]);
     
     blockchain.addTransaction(transactionParams[0], transactionParams[1], value); //convert to has map?
+    
+    List<Transaction> pendingTransactions = blockchain.getPendingTransactions();
+    Transaction transaction;
+    for (int i = 1; i < pendingTransactions.size(); i++) {
+    	transaction = pendingTransactions.get(i);
+    	System.out.println(transaction.getReceiver());
+    }
   }
   
-  private Integer parseJsonMine(String json) {
+  private String[] parseJsonMine(String json) {
     JSONObject obj = new JSONObject(json);
+    String[] stringArray = new String[2];
     
-    return (int) obj.get("nonce");
+    stringArray[0] = obj.getString("address");
+    stringArray[1] = obj.getString("nonce");
+    //stringArray[2] = Integer.toString((int) obj.get("value"));
+
+    return stringArray;
   }
   
   private String[] parseJsonTransaction(String json) {
@@ -78,7 +117,8 @@ public class NodeController {
     
     stringArray[0] = obj.getString("sender");
     stringArray[1] = obj.getString("receiver");
-    stringArray[2] = Integer.toString((int) obj.get("value"));
+    stringArray[2] = obj.getString("value");
+    //stringArray[2] = Integer.toString((int) obj.get("value"));
 
     return stringArray;
   }

@@ -3,7 +3,13 @@ package blockchain.node.core;
 import java.sql.Timestamp;
 import java.util.List;
 
-public class Block {
+import org.springframework.beans.factory.annotation.Autowired;
+
+import blockchain.node.utils.Lists;
+
+public class Block { 
+  @Autowired
+  Lists list;
   private String             prevHash;
   private int                nonce;
   private int                index;

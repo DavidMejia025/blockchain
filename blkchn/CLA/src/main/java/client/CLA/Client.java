@@ -15,10 +15,10 @@ public class Client {
     	Logs   logs = new Logs();
     	String msj;
     	String inputText;
-    	String senderAddress = "AS23245#%%3vFG43HD234@#$%$%234";
+    	String senderAddress = "123publicKey@#$#@$";
     	
     	logs.addMessage("Welcome to Wallet.io.");
-    	logs.addMessage("Please Log in:");
+    	/*logs.addMessage("Please Log in:");
 
         String userName = askUserInformation(logs, "Type your user name");
 
@@ -28,8 +28,10 @@ public class Client {
     	
     	msj = "Hi "+ userName + " would you like to create a new transaction? (yes/no)";
     	inputText = askUserInformation(logs, msj);
+    	*/
+    	String userName = "david";
     	
-    	if (inputText.equals("yes")) {
+    	if (true ) {//inputText.equals("yes")) {
     		createNewTransaction(logs, senderAddress);
     	}else {
     		inputText = askUserInformation(logs, "Do you want to see your balance?");
@@ -66,15 +68,23 @@ public class Client {
     	logs.addMessage("Transaction information");
     	logs.addBlankLine();
     	logs.addMessage("Sending " + value + " X Coins to " + recipentAddress);
-    	inputText = askUserInformation(logs, " Confirm transaction? (yes/no) ");
+    	//inputText = askUserInformation(logs, " Confirm transaction? (yes/no) ");
     	
-    	if (inputText.equals("yes")) {
+    	if (true ) {//(inputText.equals("yes")) {
     		sendTransaction(logs, senderAddress, recipentAddress, value);
+    		String userName = "David";
+    		
+    		msj = userName + " may I helpo you creating a new transaction? (yes/no)";
+	    	//inputText = askUserInformation(logs, msj);
+	    	
+			if (true) {
+				createNewTransaction(logs, senderAddress);
+			}
     	}else {
     		logs.addMessage("Do you want to create a new transaction? (y/n)");
     		inputText = askUserInformation(logs, "Do you want to create a new transaction? (y/n)");
     		
-    		if (inputText.equals("yes")) {
+    		if (true ) {//(inputText.equals("yes")) {
     			createNewTransaction(logs, senderAddress);	
     		}    		
     	}
