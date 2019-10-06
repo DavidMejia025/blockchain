@@ -22,7 +22,7 @@ public class Worker  {
   Logs logs;
   
   public Worker(String url) {
-	this.address = "111111!@#PublicKeyWorker1#sd@#$G234";
+	this.address = "333333!@#PublicKeyWorker3#sd@#$G234";
     this.nodeUrls.add(url); //need to be a loop on list if nodeUrls > 0
   }
   

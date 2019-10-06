@@ -90,8 +90,8 @@ public class BlockChainImpl implements BlockChain{
       String prevHash = prevBlocktoString(prevBlock);
       prevHash = Hashes.calculateHash(prevHash);
       
-      addTransaction("!@#$1234 on the hose 1234!@# ", workerAddress, 25);
-      addTransaction("!@#$1234 on the hose 1234!@# ", workerAddress, 25);
+      addTransaction("!@#$000000 !!on the house!! 00000!@#", workerAddress, 25);
+      addTransaction("!@#$000000 !!on the house!! 00000!@#", workerAddress, 25);
       
       Block  newBlock = createBlock(prevHash, nonce);
       
@@ -100,12 +100,12 @@ public class BlockChainImpl implements BlockChain{
       logs.addBlankLine();
       logs.addLog("New block created:  ");
       logs.addLog("Previews hash: " + newBlock.getPrevHash());
-      logs.addLog("And contains the following transactions:");
-      logs.addBlankLine();
+      logs.addLog("Transactions:");
       
       List<Transaction> transactionsAppended = newBlock.getTransactions();
      
       list.printOutTransactions(transactionsAppended);
+      logs.addBlankLine();
       
       response = buildResponse(true);
     }else {
