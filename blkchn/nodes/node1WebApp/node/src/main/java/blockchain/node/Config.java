@@ -1,15 +1,12 @@
 package blockchain.node;
 
-import java.util.Collections;
-import java.util.List;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.reactive.function.client.WebClient;
 
 import blockchain.node.core.BlockChain;
 import blockchain.node.core.BlockChainImpl;
 import blockchain.node.core.Node;
+import blockchain.node.utils.Clients;
 import blockchain.node.utils.Lists;
 import blockchain.node.utils.Logs;
 
@@ -36,15 +33,7 @@ public class Config {
   }
   
   @Bean
-  public WebClient WebCLientBean() { //refresh DI constructor to pass arguments such as url. and also what if i want to create two or more Webclient beans
-	  WebClient client = WebClient
-		  .builder()
-		    .baseUrl("http://node2:8072")
-		    .defaultCookie("cookieKey", "cookieValue")
-		    //.defaultHeader(HttpHeaders.CONTENT_TYPE, "application/json") 
-		    .defaultUriVariables(Collections.singletonMap("url", "http://node2:8072"))
-		  .build();
-	  
-	  return client;  
+  public Clients CLientsBean() { //refresh DI constructor to pass arguments such as url. and also what if i want to create two or more Webclient beans
+	  return new Clients();  
   }
 }

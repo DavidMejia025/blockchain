@@ -1,7 +1,7 @@
 package blockchain.node.controller;
 
 import java.io.IOException;
-import java.util.HashMap;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import blockchain.node.core.Block;
 import blockchain.node.core.BlockChain;
 import blockchain.node.core.Node;
 import blockchain.node.core.Transaction;
+import blockchain.node.utils.Clients;
 import blockchain.node.utils.Lists;
 import blockchain.node.utils.Logs;
 
@@ -27,11 +27,8 @@ public class NodeController {
   Node node;
   @Autowired
   Lists list;
-  //BlockChain blockchain = node.getBlockChain() ; //should be improved with setter DI 
   @Autowired
   Logs logs;
-  @Autowired
-  WebClient client;
   
   @GetMapping("/init")
   public String nodeInit(String[] args) {
@@ -44,20 +41,12 @@ public class NodeController {
   @GetMapping("/ping")
   public String ping(String[] args) {
     
-    return "Node 1 is up and running !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
+    return "Node 1 is up and running !!!";
   }
   
   @GetMapping("/ping-nodes")
   public void pingNodes(String[] args) {
-	String response ;
-	
-	response = sendNodePing(client);
-	logs.addLog("Response from node: 2 is: " + response);
-	/*for (int i = 0; i < clients.size(); i++) {
-	  response = sendNodePing(clients.get(i));
-	  
-	  logs.addLog("Response from node: " + i + "is " + response);
-	}*/
+	  node.pingNodes();
   }
   
   @PostMapping(value = "/mine", headers="Accept=application/json", consumes = "application/JSON")
@@ -156,6 +145,7 @@ public class NodeController {
 
     return result;
   }
+  
   /*
    * Return a JSON object (but is not working) or an POO object?
   private JSONObject buildResponse(String status, int index) { // This kind of things made me think to pass this to a service package
