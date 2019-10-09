@@ -16,7 +16,7 @@ public class Config {
     return new Worker("http://localhost:8082");
   }
   
-  @Bean
+  /*@Bean
   public WebClient WebCLientBean() { //refresh DI constructor to pass arguments such as url. and also what if i want to create two or more Webclient beans
 	  WebClient client = WebClient
 		  .builder()
@@ -27,7 +27,7 @@ public class Config {
 		  .build();
 	  
 	  return client;  
-  }
+  }*/
   
   @Bean
   public Logs LogsBean() {

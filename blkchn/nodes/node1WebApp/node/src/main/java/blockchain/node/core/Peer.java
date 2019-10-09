@@ -26,15 +26,15 @@ public class Peer {
  	}
  	
  	public String handShake(String nodeUrl) {
- 	  String params = "{ \"url\": \""+ nodeUrl +"\"}";
-    System.out.println(params);
-    System.out.println(params.getClass());
+ 	  JSONObject params = new JSONObject();
+    params.put("url", nodeUrl);
+    String stringParams = params.toString();
     
     String response = peerClient.getWebClient().post()
     .uri("/hand-shake")
     .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
     .accept(MediaType.APPLICATION_JSON)
-    .body(BodyInserters.fromObject(params))
+    .body(BodyInserters.fromObject(stringParams))
     .retrieve()
     .bodyToMono(String.class)
     .block();
@@ -45,11 +45,14 @@ public class Peer {
  	}
  	
  	public String getBlocks(int blockChainIndex) {
-    String params = "{ \"blockChainLength\": \""+ blockChainIndex +"\"}";
- 		
+    //String params = "{ \"blockChainLength\": \""+ blockChainIndex +"\"}";
+    JSONObject params = new JSONObject();
+    params.put("blockChainLength", blockChainIndex);
+    String stringParams = params.toString();
+    
      String response = peerClient.getWebClient().post()
       .uri("/get-blocks")
-      .body(BodyInserters.fromObject(params))
+      .body(BodyInserters.fromObject(stringParams))
       .retrieve()
       .bodyToMono(String.class)
       .block();

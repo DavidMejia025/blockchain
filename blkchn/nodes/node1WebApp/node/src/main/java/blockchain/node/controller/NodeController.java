@@ -35,9 +35,8 @@ public class NodeController {
   
   @PostMapping(value = "/set-url", headers="Accept=application/json", consumes = "application/JSON")
   public void setUrl(@RequestBody String params) {
-    JSONObject obj = new JSONObject(params);
-    
-	   node.setUrl(obj.getString("url"));
+	   node.setUrl(MyJson.getJsonString(params, "url"));
+	   
 	   logs.addLog("The current Url is: " + node.getUrl());
   }
   
@@ -58,8 +57,7 @@ public class NodeController {
   
   @PostMapping(value = "/new-peer", headers="Accept=application/json", consumes = "application/JSON")
   public void newPeer(@RequestBody String params) {
-    JSONObject obj = new JSONObject(params);
-    String peerUrl = obj.getString("url");  
+    String peerUrl = MyJson.getJsonString(params, "url");  
 
 	   Peer peer = node.addPeer(peerUrl);
 	
@@ -73,21 +71,19 @@ public class NodeController {
   
   @PostMapping(value = "/hand-shake", headers="Accept=application/json", consumes = "application/JSON")
   public String handShake(@RequestBody String params) {
-	   JSONObject obj = new JSONObject(params);
-	   String peerUrl = obj.getString("url");
+	   String peerUrl = MyJson.getJsonString(params, "url");
 	   
 	   int blockChainLength = node.handShake(peerUrl);
 	   String response = "{ \"blockChainLength\": \""+ blockChainLength +"\"}";
 	  
-	   logs.addLog("something res " + response);
 	   return  response; //node.handShake(peerUrl);
   }
   
   @PostMapping(value = "/get-blocks", headers="Accept=application/json", consumes = "application/JSON", produces = "application/json")
   public String getBlocks(@RequestBody String params) {
-	   String peerBlockChainLength = MyJson.getJsonString(params, "blockChainLength");
+	   int peerBlockChainLength = MyJson.getJsonInt(params, "blockChainLength");
 	   
-	   JSONObject jsonBlocks = node.sendBlocks(Integer.parseInt(peerBlockChainLength));
+	   JSONObject jsonBlocks = node.sendBlocks(peerBlockChainLength);
 	   logs.addLog("my params" + jsonBlocks);
 	   logs.addLog("my params" + jsonBlocks.getClass());
 	   
@@ -246,6 +242,7 @@ public class NodeController {
   /*
 curl -i -H "Content-Type: application/json" -d "{ \"blockChainLength\": \"http://localhost:8071\"}" -X POST http://localhost:8071/get-blocks
 curl -i -H "Content-Type: application/json" -d "{ \"num\": 2}" -X POST http://localhost:8071/get-blocks
+______________________________________________________________
 curl -i -X GET http://localhost:8071/blockchain-info
 curl -i -X GET http://localhost:8072/blockchain-info
 curl -i -X GET http://localhost:8073/blockchain-info

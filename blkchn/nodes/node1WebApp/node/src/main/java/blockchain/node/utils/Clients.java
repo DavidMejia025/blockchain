@@ -14,9 +14,6 @@ public class Clients {
 	
 	public Clients() {}
 	
-	
-	
-	
 	public void addClient(String url) {
 	  WebClient client = WebClient
 		  .builder()
@@ -29,7 +26,7 @@ public class Clients {
 	  this.client = client;  
   }
 	
-	public WebClient getWebClient() {
-		return this.client;
-	}
+	 public WebClient getWebClient() {
+		  return this.client;
+	 }
 }

@@ -1,4 +1,4 @@
-package blockchain.node.utils;
+package blockchain.utils;
 
 import java.util.List;
 
@@ -19,4 +19,3 @@ public class MyJson {
     return result;
   }
 }
-
