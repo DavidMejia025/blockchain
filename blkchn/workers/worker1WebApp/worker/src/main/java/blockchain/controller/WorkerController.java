@@ -24,12 +24,14 @@ public class WorkerController {
   public void setAddress(@RequestBody String params) {
     worker.setAddress(MyJson.getJsonString(params, "url"));
     
-    logs.addLog("The current Url is: " + worker.getAddress());
+    logs.addLog("The current Address is: " + worker.getAddress());
   }
   
   @PostMapping(value = "/add-node", headers="Accept=application/json", consumes = "application/JSON")
   public void addNode(@RequestBody String params) {
     worker.addNode(MyJson.getJsonString(params, "url"));
+    
+    logs.addLog("New node added with address: " + MyJson.getJsonString(params, "url"));
   }
   
   @GetMapping("/list-nodes")
@@ -38,43 +40,16 @@ public class WorkerController {
   }
   
   @GetMapping("/mine")
-  public String Mine(String[] args) {
-    // background job? If for any reason the services needs to be available for another queries such as balance?
+  public void Mine(String[] args) {
     worker.mine();
-    
-    return "Finish mining";
   }
   
   @GetMapping(value = "/balance")
   public String getBalance() throws IOException, Exception {
-    return "Nothing mined yet";
+    return "To be implemented with a wallet";
   }
 }
-/*
-curl -i -X GET http://localhost:8081/list-nodes
-curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8081\"}" -X POST http://localhost:8081/set-address
-curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8071\"}" -X POST http://localhost:8081/add-node
 
-
-curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8081\"}" -X POST http://localhost:8081/set-address
-curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8071\"}" -X POST http://localhost:8081/add-node
-curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8072\"}" -X POST http://localhost:8081/add-node
-curl -i -X GET http://localhost:8081/list-nodes
-
-curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8072\"}" -X POST http://localhost:8072/set-url
-curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8073\"}" -X POST http://localhost:8073/set-url
-curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8074\"}" -X POST http://localhost:8074/set-url
-curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8075\"}" -X POST http://localhost:8075/set-url
-curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8076\"}" -X POST http://localhost:8076/set-url
-curl -i -X GET http://localhost:8072/init
-curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8072\"}" -X POST http://localhost:8071/new-peer
-curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8071\"}" -X POST http://localhost:8073/new-peer
-curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8072\"}" -X POST http://localhost:8074/new-peer
-curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8073\"}" -X POST http://localhost:8075/new-peer
-curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8071\"}" -X POST http://localhost:8076/new-peer
-curl -i -X GET http://localhost:8081/mine
-//add node
- }*/
 
 
   

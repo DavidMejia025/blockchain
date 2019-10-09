@@ -111,6 +111,16 @@ public class NodeController {
         if(validationResult == true) {
           blockchain.addBlock(mined);
           
+          logs.addBlankLine();
+          logs.addLog("New block created:  ");
+          logs.addLog("Previews hash: " + mined.getPrevHash());
+          logs.addLog("Transactions:");
+          
+          List<Transaction> transactionsAppended = mined.getTransactions();
+         
+          list.printOutTransactions(transactionsAppended);
+          logs.addBlankLine();
+          
           minedResult = true;
         }else {
           minedResult = false;

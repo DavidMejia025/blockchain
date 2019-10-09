@@ -53,4 +53,23 @@ public class Block {
   public int getNonce() {
     return this.nonce;
   }
+  
+  public String toString() {
+    String blockTransactions;
+    try {
+      blockTransactions = list.transactionsToString(getTransactions());
+    } catch (Exception e) {
+      blockTransactions = "{}";
+    }
+    String blockString = "" +
+      getIndex() +
+      getCreatedBy() +
+      blockTransactions +
+      getTimestamp() +
+      getHash() +
+      getNonce() +
+      "";
+    
+    return blockString;
+  }
 }

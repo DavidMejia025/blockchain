@@ -5,14 +5,15 @@ import java.util.Collections;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
 
-public class Clients {
+public class HttpClient {
   WebClient client;
   @Autowired
   Logs logs;
   
-  public Clients() {}
+  public HttpClient() {}
   
   public void addClient(String url) {
     WebClient client = WebClient
@@ -28,5 +29,26 @@ public class Clients {
   
    public WebClient getWebClient() {
      return this.client;
+   }
+   
+   public String sendGet(String url) {
+     String response = this.client.get()
+       .uri(url)
+       .retrieve()
+       .bodyToMono(String.class)
+       .block();
+     
+     return response;
+   }
+   
+   public String sendPost(String url, String params) {
+     String response = this.client.post()
+       .uri(url)
+       .body(BodyInserters.fromObject(params))
+       .retrieve()
+       .bodyToMono(String.class)
+       .block();
+     
+     return response;
    }
  }

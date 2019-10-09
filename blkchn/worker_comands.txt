@@ -1,0 +1,12 @@
+Basic comands
+curl -i -X GET http://localhost:8081/list-nodes
+curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8081\"}" -X POST http://localhost:8081/set-address
+curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8071\"}" -X POST http://localhost:8081/add-node
+curl -i -X GET http://localhost:8081/mine
+
+Run basic test
+curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8081\"}" -X POST http://localhost:8081/set-address
+curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8071\"}" -X POST http://localhost:8081/add-node
+curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8072\"}" -X POST http://localhost:8081/add-node
+curl -i -X GET http://localhost:8081/list-nodes
+curl -i -X GET http://localhost:8081/mine

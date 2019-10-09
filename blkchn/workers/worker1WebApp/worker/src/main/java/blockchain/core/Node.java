@@ -2,20 +2,20 @@ package blockchain.core;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import blockchain.utils.Clients;
+import blockchain.utils.HttpClient;
 import blockchain.utils.Logs;
 
 public class Node {
   Boolean linked = false;
   String  url;
-  //@Autowired
-  Clients nodeClient = new Clients();
+  //@Autowired   
+  HttpClient httpClient = new HttpClient();
   @Autowired
   Logs logs;
   
   public Node(String url) {
     this.url = url;
-    this.nodeClient.addClient(url);
+    this.httpClient.addClient(url);
   }
   
   public Boolean getNodeLinked() {

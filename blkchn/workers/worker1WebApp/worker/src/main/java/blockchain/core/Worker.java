@@ -6,15 +6,14 @@ import java.util.List;
 
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.reactive.function.BodyInserters;
-import org.springframework.web.reactive.function.client.WebClient;
 
 import blockchain.utils.Hashes;
 import blockchain.utils.Logs;
 
 public class Worker  {
-  List<Node> nodes = new ArrayList<Node>();
-  String     difficulty = "0"; // get this from node
+  List<Node> nodes      = new ArrayList<Node>();
+  Node       defaultNode;
+  String     difficulty;
   String     address;
   @Autowired
   Logs logs;
@@ -32,13 +31,11 @@ public class Worker  {
     
     String nodeResponse = sendMineRequest(nonce);
 
-    JSONObject obj = new JSONObject(nodeResponse);
-    
-    boolean mined;
-    mined = obj.getBoolean("result");
+    JSONObject obj   = new JSONObject(nodeResponse);
+    boolean    mined = obj.getBoolean("result");
     
     if (mined) {
-      logs.addLog("Yei, 1 Coin earned from block #Hash with transaction #T");
+      logs.addLog("Yei, 25 Coins earned from block #Hash with transaction #T");
     }else {
       logs.addLog("Sorry the nonce failed, now calculating a new nonce again");
     }
@@ -47,17 +44,12 @@ public class Worker  {
   }
   
   private Integer getPreviousNonce() {
-
-	String response = nodes.get(0).nodeClient.getWebClient().get()
-     .uri("/last-nonce")
-     .retrieve()
-     .bodyToMono(String.class)
-     .block();
-	
-	HashMap<String, String> parsedResponse = parseJsonPrevNonce(response);
-	 
-	setDifficulty(parsedResponse.get("difficulty"));
-	 
+   	String response = defaultNode.httpClient.sendGet("/last-nonce");
+   	
+   	HashMap<String, String> parsedResponse = parseJsonPrevNonce(response);
+   	 
+   	setDifficulty(parsedResponse.get("difficulty"));
+   	 
     return Integer.parseInt(parsedResponse.get("prevNonce"));
   }
   
@@ -81,29 +73,23 @@ public class Worker  {
   
   private boolean validProofOfWork(int prevNonce, int nonce) {
     String hash     = Hashes.calculateHash("" + prevNonce + nonce + "");
-    String hashTest =  hash.substring(0, 1);
+    String hashTest = hash.substring(0, 1);
     
     try {
       Thread.sleep(500);
     } catch (InterruptedException e) {
-      // TODO Auto-generated catch block
       e.printStackTrace();
     }
     return (hashTest.equals(difficulty));
-  }
+  }     
   
   private String sendMineRequest(int nonce) {
-	HashMap<String, String> params = new HashMap<>();
-	
-	params.put("address", this.address);
-	params.put("nonce", Integer.toString(nonce));
-	
-    String result = nodes.get(0).nodeClient.getWebClient().post()
-     .uri("/mine")
-     .body(BodyInserters.fromObject(params))
-     .retrieve()
-     .bodyToMono(String.class)
-     .block();
+   	JSONObject params = new JSONObject();
+   	params.put("address", this.address);
+   	params.put("nonce", Integer.toString(nonce));
+   	String stringParams = params.toString();
+   	
+    String result = defaultNode.httpClient.sendPost("/mine", stringParams);
 
     return result;
   }
@@ -119,8 +105,23 @@ public class Worker  {
     return response;
   }
   
+  public Boolean addNode(String url) {
+    Node newNode = new Node(url);
+    nodes.add(newNode);
+    newNode.setNodeLinked(true);
+    
+    setDefaultNode(newNode);
+    
+    return true;
+  }
+  
+  private void setDefaultNode(Node node) {
+    this.defaultNode = node;
+  }
+  
   public List<String> listNodes(){
     List<String> nodesUrl = new ArrayList<String>();
+    
     try { 
       int countPeers = this.nodes.size();
  
@@ -132,14 +133,6 @@ public class Worker  {
     }
  
     return nodesUrl;
-  }
-  
-  public Boolean addNode(String url) {
-    Node newNode = new Node(url);
-    nodes.add(newNode);
-    logs.addLog("New node added with address: " + url);
-    
-    return true;
   }
   
   public String getAddress() {

@@ -9,53 +9,51 @@ import org.springframework.web.reactive.function.BodyInserters;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import blockchain.node.utils.Clients;
+import blockchain.node.utils.HttpClient;
 import blockchain.node.utils.Logs;
 
 public class Peer {
  	Boolean linked = false;
  	String  url;
- 	//@Autowired
- 	Clients peerClient = new Clients();
+ 	HttpClient HttpClient = new HttpClient();
  	@Autowired
  	Logs logs;
  		
  	public Peer(String url) {
  	  this.url = url;
- 	  this.peerClient.addClient(url);
+ 	  this.HttpClient.addClient(url);
  	}
- 	
+  
+  public Boolean getPeerLinked() {
+   return linked;
+  }
+  
+  public void setPeerLinked(Boolean status) {
+   this.linked = status;
+  }
+   
+  public String getPeerUrl() {
+   return this.url;
+  }
+  
  	public String handShake(String nodeUrl) {
  	  JSONObject params = new JSONObject();
     params.put("url", nodeUrl);
     String stringParams = params.toString();
     
-    String response = peerClient.getWebClient().post()
-    .uri("/hand-shake")
-    .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-    .accept(MediaType.APPLICATION_JSON)
-    .body(BodyInserters.fromObject(stringParams))
-    .retrieve()
-    .bodyToMono(String.class)
-    .block();
+    String response = HttpClient.sendPost("/hand-shake",stringParams);
 
-     setPeerLinked(true);
+    setPeerLinked(true);
  	    
- 		  return response;
+ 		 return response;
  	}
  	
  	public String getBlocks(int blockChainIndex) {
-    //String params = "{ \"blockChainLength\": \""+ blockChainIndex +"\"}";
     JSONObject params = new JSONObject();
     params.put("blockChainLength", blockChainIndex);
     String stringParams = params.toString();
     
-     String response = peerClient.getWebClient().post()
-      .uri("/get-blocks")
-      .body(BodyInserters.fromObject(stringParams))
-      .retrieve()
-      .bodyToMono(String.class)
-      .block();
+    String response = HttpClient.sendPost("/get-blocks",stringParams);
  	    
  		 return response;
  	}
@@ -69,26 +67,9 @@ public class Peer {
     params.put("block",   jsonBlock);
     String stringParams = params.toString();
 
-     String response = peerClient.getWebClient().post()
-      .uri("/valid-block")
-      .body(BodyInserters.fromObject(stringParams))
-      .retrieve()
-      .bodyToMono(String.class)
-      .block();
-      
+    String response = HttpClient.sendPost("/valid-block",stringParams);
+
     return response;
-  }
- 	
- 	public Boolean getPeerLinked() {
- 		return linked;
- 	}
- 	
- 	public void setPeerLinked(Boolean status) {
- 		this.linked = status;
- 	}
- 		
- 	public String getPeerUrl() {
- 		return this.url;
  	}
 }
 

@@ -21,8 +21,6 @@ public interface BlockChain {
   
   List<Transaction> getPendingTransactions();
   
-  String prevBlocktoString(Block block);
-  
   Block mineBlock(String createdBy, int nonce, String workerAddress);
   
   void addTransaction(String sender, String receiver, int value);
