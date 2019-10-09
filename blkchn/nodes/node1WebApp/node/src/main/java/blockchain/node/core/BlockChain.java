@@ -1,10 +1,13 @@
 package blockchain.node.core;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.json.JSONArray;
+
 public interface BlockChain {
-  Block createBlock(String  prevHash, int nonce);
+  Block createBlock(String createdBy, String  prevHash, int nonce);
   
   boolean validProofOfWork(int prevNonce, int nonce);
   
@@ -20,10 +23,19 @@ public interface BlockChain {
   
   String prevBlocktoString(Block block);
   
-  Map<String, Boolean> mineBlock(int nonce, String workerAddress);
+  Block mineBlock(String createdBy, int nonce, String workerAddress);
   
   void addTransaction(String sender, String receiver, int value);
   
   int getIndex();
   
+  Block getBlock(int index);
+  
+  void init(String createdBy);
+  
+  HashMap<String, String> getInfo();
+  
+  List<Block> createBlocks(JSONArray blocks);
+  
+  void appendBlocks(List<Block> blockList);
 }

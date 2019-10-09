@@ -1,10 +1,12 @@
 package blockchain.node.controller;
 
 import java.io.IOException;
-import java.util.Collections;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,10 +18,11 @@ import org.springframework.web.reactive.function.client.WebClient;
 import blockchain.node.core.Block;
 import blockchain.node.core.BlockChain;
 import blockchain.node.core.Node;
+import blockchain.node.core.Peer;
 import blockchain.node.core.Transaction;
-import blockchain.node.utils.Clients;
 import blockchain.node.utils.Lists;
 import blockchain.node.utils.Logs;
+import blockchain.node.utils.MyJson;
 
 @RestController
 public class NodeController {
@@ -30,69 +33,163 @@ public class NodeController {
   @Autowired
   Logs logs;
   
+  @PostMapping(value = "/set-url", headers="Accept=application/json", consumes = "application/JSON")
+  public void setUrl(@RequestBody String params) {
+    JSONObject obj = new JSONObject(params);
+    
+	   node.setUrl(obj.getString("url"));
+	   logs.addLog("The current Url is: " + node.getUrl());
+  }
+  
   @GetMapping("/init")
   public String nodeInit(String[] args) {
-	BlockChain blockchain = node.getBlockChain();
-    Block      root       = blockchain.getLastBlock();
+	   BlockChain blockchain = node.getBlockChain();
+	   blockchain.init(node.getUrl());
+	
+    Block root = blockchain.getLastBlock();
     
-    return "Blockchain with root node that has previous hash eq = " + root.getPrevHash() + " was created";
+    return "Blockchain with root node that has previous hash eq = " + root.getPrevHash() + " was created succesfully";
   }
   
-  @GetMapping("/ping")
-  public String ping(String[] args) {
-    
-    return "Node 1 is up and running !!!";
+  @GetMapping("/list-peers")
+  public List<String> listPeers(String[] args) {
+	   return node.listPeers();
   }
   
-  @GetMapping("/ping-nodes")
-  public void pingNodes(String[] args) {
-	  node.pingNodes();
+  @PostMapping(value = "/new-peer", headers="Accept=application/json", consumes = "application/JSON")
+  public void newPeer(@RequestBody String params) {
+    JSONObject obj = new JSONObject(params);
+    String peerUrl = obj.getString("url");  
+
+	   Peer peer = node.addPeer(peerUrl);
+	
+	   String response = peer.handShake(node.getUrl());
+	   String peerBlockChainLength = MyJson.getJsonString(response, "blockChainLength");
+
+	   logs.addLog("The peer Blockchain length is: " + peerBlockChainLength);
+	   
+	   node.matchBlockChain(peer, Integer.parseInt(peerBlockChainLength));
+  }
+  
+  @PostMapping(value = "/hand-shake", headers="Accept=application/json", consumes = "application/JSON")
+  public String handShake(@RequestBody String params) {
+	   JSONObject obj = new JSONObject(params);
+	   String peerUrl = obj.getString("url");
+	   
+	   int blockChainLength = node.handShake(peerUrl);
+	   String response = "{ \"blockChainLength\": \""+ blockChainLength +"\"}";
+	  
+	   logs.addLog("something res " + response);
+	   return  response; //node.handShake(peerUrl);
+  }
+  
+  @PostMapping(value = "/get-blocks", headers="Accept=application/json", consumes = "application/JSON", produces = "application/json")
+  public String getBlocks(@RequestBody String params) {
+	   String peerBlockChainLength = MyJson.getJsonString(params, "blockChainLength");
+	   
+	   JSONObject jsonBlocks = node.sendBlocks(Integer.parseInt(peerBlockChainLength));
+	   logs.addLog("my params" + jsonBlocks);
+	   logs.addLog("my params" + jsonBlocks.getClass());
+	   
+	   return jsonBlocks.toString();
   }
   
   @PostMapping(value = "/mine", headers="Accept=application/json", consumes = "application/JSON")
-  public Map<String, Boolean> postMine(@RequestBody String params) throws IOException, Exception {
-    String[] mineParams = parseJsonMine(params);
-    
-    logs.addLog("receiving a new nonce: " + mineParams[1] + "from: " + mineParams[0]);
+  public String postMine(@RequestBody String params) throws IOException, Exception {
+    String[] mineParams = parseJsonMine(params);    
+    logs.addLog("Receiving a new nonce: " + mineParams[1] + ", from: " + mineParams[0]);
     
     BlockChain blockchain = node.getBlockChain();
     
-    Map<String, Boolean> response = blockchain.mineBlock(Integer.parseInt(mineParams[1]), mineParams[0]);
+    Block mined = blockchain.mineBlock(node.getUrl(), Integer.parseInt(mineParams[1]), mineParams[0]);
     
-    return response;
+    Boolean minedResult = false;
+    HashMap<Peer, Boolean> broadCastResult;
+    if (mined != null) {
+      if (node.getPeers().size() > 0) {
+        broadCastResult = node.broadcastBlock("sendToAll", mined);
+        
+        Boolean validationResult = node.peersValidation(broadCastResult);
+        logs.addLog("SOmething Broadcasted and validated " + validationResult);
+        
+        if(validationResult == true) {
+          blockchain.addBlock(mined);
+          
+          minedResult = true;
+        }else {
+          minedResult = false;
+        }
+        logs.addLog("SOmething is happening here");
+      }else {
+        blockchain.addBlock(mined);
+        
+        minedResult = true;
+      }
+    }
+    
+    JSONObject response = new JSONObject();
+    response.put("result", minedResult);
+    return response.toString();
+  }
+  
+  @PostMapping(value = "/valid-block", headers="Accept=application/json", consumes = "application/JSON")
+  public String postValidBlock(@RequestBody String params) throws IOException, Exception {
+    JSONObject obj = new JSONObject(params);
+    String     senderUrl = obj.getString("peerUrl");
+    JSONObject jsonBlock = new JSONObject(obj.getString("block"));
+    
+    BlockChain blockchain = node.getBlockChain();
+    Block      block      = blockchain.getLastBlock();
+    
+    Boolean nonceIsValid = blockchain.validProofOfWork(block.getNonce(), jsonBlock.getInt("nonce"));
+    
+    HashMap<Peer, Boolean> broadCastResult;
+    Boolean nonceResult = false;
+    if (nonceIsValid == true) {
+      JSONArray blocks = new JSONArray();
+      blocks.put(jsonBlock);
+      
+      List<Block> newBlock = blockchain.createBlocks(blocks);
+      Block       mined    = newBlock.get(0);
+
+      broadCastResult = node.broadcastBlock(senderUrl, mined);
+        
+      Boolean validationResult = node.peersValidation(broadCastResult);
+        
+      if(validationResult == true) {
+        blockchain.addBlock(mined);
+          
+        nonceResult = true;
+      }else {
+        nonceResult = false;
+      }
+    }
+    
+    JSONObject response = new JSONObject();
+    response.put("valid", nonceIsValid);
+    
+    return response.toString();
   }
   
   @GetMapping("/last-nonce")
   public String getLastNounce(String[] args) {
-	BlockChain blockchain = node.getBlockChain();
-    Block      block       = blockchain.getLastBlock();
+	   BlockChain blockchain = node.getBlockChain();
+    Block      block   = blockchain.getLastBlock();
     
     JSONObject json = new JSONObject();
     
     json.put("difficulty", blockchain.getDifficulty());
-    json.put("nonce", block.getNonce());
+    json.put("nonce",      block.getNonce());
     
     return json.toString();
   }
   
   @GetMapping("/blockchain-info")
-  public String getBlockChainInfo(String[] args) {
-	BlockChain blockchain = node.getBlockChain();
-    Block      block       = blockchain.getLastBlock();
-    
-    logs.addLog("BlockChain length: " + blockchain.getIndex());
-    logs.addLog("Previews hash: " + block.getPrevHash());
-    
-    List<Transaction> pendingTransactions = blockchain.getPendingTransactions();
-    
-    list.printOutTransactions(pendingTransactions);
-    
-    JSONObject json = new JSONObject();
-    
-    json.put("BlockChain length", blockchain.getIndex());
-    json.put("previeus hash",     block.getPrevHash());
-    
-    return json.toString();
+  public HashMap<String, String> getBlockChainInfo(String[] args) {
+	   BlockChain blockchain = node.getBlockChain();
+	   HashMap<String, String> info = blockchain.getInfo();
+	
+    return info;
   }
   
   @PostMapping(value = "/add-transaction", headers="Accept=application/json", consumes = "application/JSON")
@@ -147,13 +244,29 @@ public class NodeController {
   }
   
   /*
-   * Return a JSON object (but is not working) or an POO object?
-  private JSONObject buildResponse(String status, int index) { // This kind of things made me think to pass this to a service package
-	    JSONObject response = new JSONObject();
-	    
-	    response.put("status", status);
-	    response.put("blockId", Integer.toString(index));
-	    
-	    return response;
+curl -i -H "Content-Type: application/json" -d "{ \"blockChainLength\": \"http://localhost:8071\"}" -X POST http://localhost:8071/get-blocks
+curl -i -H "Content-Type: application/json" -d "{ \"num\": 2}" -X POST http://localhost:8071/get-blocks
+curl -i -X GET http://localhost:8071/blockchain-info
+curl -i -X GET http://localhost:8072/blockchain-info
+curl -i -X GET http://localhost:8073/blockchain-info
+curl -i -X GET http://localhost:8074/blockchain-info
+curl -i -X GET http://localhost:8075/blockchain-info
+curl -i -X GET http://localhost:8076/blockchain-info
+_____________________________________________________________
+
+curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8071\"}" -X POST http://localhost:8071/set-url
+curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8072\"}" -X POST http://localhost:8072/set-url
+curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8073\"}" -X POST http://localhost:8073/set-url
+curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8074\"}" -X POST http://localhost:8074/set-url
+curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8075\"}" -X POST http://localhost:8075/set-url
+curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8076\"}" -X POST http://localhost:8076/set-url
+curl -i -X GET http://localhost:8072/init
+curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8072\"}" -X POST http://localhost:8071/new-peer
+curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8071\"}" -X POST http://localhost:8073/new-peer
+curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8072\"}" -X POST http://localhost:8074/new-peer
+curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8073\"}" -X POST http://localhost:8075/new-peer
+curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8071\"}" -X POST http://localhost:8076/new-peer
+curl -i -X GET http://localhost:8081/mine
+//add node
 	  }*/
 }

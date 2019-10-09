@@ -10,16 +10,18 @@ import blockchain.node.utils.Lists;
 public class Block { 
   @Autowired
   Lists list;
+  private String             createdBy;         
   private String             prevHash;
   private int                nonce;
   private int                index;
   private Timestamp          timestamp;
   private List<Transaction>  transactions; 
   
-  public Block(int index, List<Transaction> transactions, String  prevHash, int nonce) {
+  public Block(int index, String createdBy, List<Transaction> transactions, Timestamp timestamp, String  prevHash, int nonce) {
     this.index        = index;
+    this.createdBy    = createdBy;
     this.transactions = transactions;
-    this.timestamp    = new Timestamp(System.currentTimeMillis());
+    this.timestamp    = timestamp;
     this.prevHash     = prevHash;
     this.nonce        = nonce;
   }
@@ -42,6 +44,10 @@ public class Block {
   
   public String getHash() {
     return this.prevHash;
+  }
+  
+  public String getCreatedBy() {
+    return this.createdBy;
   }
   
   public int getNonce() {
