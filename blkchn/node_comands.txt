@@ -1,0 +1,33 @@
+Basic commands:
+
+curl -i -H "Content-Type: application/json" -d "{ \"blockChainLength\": \"http://localhost:8071\"}" -X POST http://localhost:8071/get-blocks
+curl -i -H "Content-Type: application/json" -d "{ \"num\": 2}" -X POST http://localhost:8071/get-blocks
+
+curl -i -X GET http://localhost:8072/init-blockchain
+curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8071\"}" -X POST http://localhost:8071/set-url
+curl -i -X GET http://localhost:8071/blockchain-info
+curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8072\"}" -X POST http://localhost:8071/new-peer
+
+Some test done before
+______________________________________________________________
+
+curl -i -X GET http://localhost:8072/blockchain-info
+curl -i -X GET http://localhost:8071/blockchain-info
+curl -i -X GET http://localhost:8073/blockchain-info
+curl -i -X GET http://localhost:8074/blockchain-info
+curl -i -X GET http://localhost:8075/blockchain-info
+curl -i -X GET http://localhost:8076/blockchain-info
+_____________________________________________________________
+
+curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8072\"}" -X POST http://localhost:8072/set-url
+curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8071\"}" -X POST http://localhost:8071/set-url
+curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8073\"}" -X POST http://localhost:8073/set-url
+curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8074\"}" -X POST http://localhost:8074/set-url
+curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8075\"}" -X POST http://localhost:8075/set-url
+curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8076\"}" -X POST http://localhost:8076/set-url
+curl -i -X GET http://localhost:8072/init-blockchain
+curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8072\"}" -X POST http://localhost:8071/new-peer
+curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8071\"}" -X POST http://localhost:8073/new-peer
+curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8072\"}" -X POST http://localhost:8074/new-peer
+curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8073\"}" -X POST http://localhost:8075/new-peer
+curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8071\"}" -X POST http://localhost:8076/new-peer

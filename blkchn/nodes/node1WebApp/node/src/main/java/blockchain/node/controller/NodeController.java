@@ -40,7 +40,7 @@ public class NodeController {
 	   logs.addLog("The current Url is: " + node.getUrl());
   }
   
-  @GetMapping("/init")
+  @GetMapping("/init-blockchain")
   public String nodeInit(String[] args) {
 	   BlockChain blockchain = node.getBlockChain();
 	   blockchain.init(node.getUrl());
@@ -61,12 +61,11 @@ public class NodeController {
 
 	   Peer peer = node.addPeer(peerUrl);
 	
-	   String response = peer.handShake(node.getUrl());
-	   String peerBlockChainLength = MyJson.getJsonString(response, "blockChainLength");
-
+	   String response          = peer.handShake(node.getUrl());
+	   int peerBlockChainLength = MyJson.getJsonInt(response, "blockChainLength");
 	   logs.addLog("The peer Blockchain length is: " + peerBlockChainLength);
 	   
-	   node.matchBlockChain(peer, Integer.parseInt(peerBlockChainLength));
+	   node.matchBlockChain(peer, peerBlockChainLength);
   }
   
   @PostMapping(value = "/hand-shake", headers="Accept=application/json", consumes = "application/JSON")
@@ -74,9 +73,11 @@ public class NodeController {
 	   String peerUrl = MyJson.getJsonString(params, "url");
 	   
 	   int blockChainLength = node.handShake(peerUrl);
-	   String response = "{ \"blockChainLength\": \""+ blockChainLength +"\"}";
-	  
-	   return  response; //node.handShake(peerUrl);
+
+	   JSONObject response = new JSONObject();
+	   response.put("blockChainLength", blockChainLength);
+	   
+	   return  response.toString();
   }
   
   @PostMapping(value = "/get-blocks", headers="Accept=application/json", consumes = "application/JSON", produces = "application/json")
@@ -84,8 +85,6 @@ public class NodeController {
 	   int peerBlockChainLength = MyJson.getJsonInt(params, "blockChainLength");
 	   
 	   JSONObject jsonBlocks = node.sendBlocks(peerBlockChainLength);
-	   logs.addLog("my params" + jsonBlocks);
-	   logs.addLog("my params" + jsonBlocks.getClass());
 	   
 	   return jsonBlocks.toString();
   }
@@ -103,29 +102,7 @@ public class NodeController {
     HashMap<Peer, Boolean> broadCastResult;
     if (mined != null) {
       if (node.getPeers().size() > 0) {
-        broadCastResult = node.broadcastBlock("sendToAll", mined);
-        
-        Boolean validationResult = node.peersValidation(broadCastResult);
-        logs.addLog("SOmething Broadcasted and validated " + validationResult);
-        
-        if(validationResult == true) {
-          blockchain.addBlock(mined);
-          
-          logs.addBlankLine();
-          logs.addLog("New block created:  ");
-          logs.addLog("Previews hash: " + mined.getPrevHash());
-          logs.addLog("Transactions:");
-          
-          List<Transaction> transactionsAppended = mined.getTransactions();
-         
-          list.printOutTransactions(transactionsAppended);
-          logs.addBlankLine();
-          
-          minedResult = true;
-        }else {
-          minedResult = false;
-        }
-        logs.addLog("SOmething is happening here");
+        minedResult = node.validateBlock("send to all", mined);
       }else {
         blockchain.addBlock(mined);
         
@@ -149,7 +126,6 @@ public class NodeController {
     
     Boolean nonceIsValid = blockchain.validProofOfWork(block.getNonce(), jsonBlock.getInt("nonce"));
     
-    HashMap<Peer, Boolean> broadCastResult;
     Boolean nonceResult = false;
     if (nonceIsValid == true) {
       JSONArray blocks = new JSONArray();
@@ -157,22 +133,12 @@ public class NodeController {
       
       List<Block> newBlock = blockchain.createBlocks(blocks);
       Block       mined    = newBlock.get(0);
-
-      broadCastResult = node.broadcastBlock(senderUrl, mined);
-        
-      Boolean validationResult = node.peersValidation(broadCastResult);
-        
-      if(validationResult == true) {
-        blockchain.addBlock(mined);
-          
-        nonceResult = true;
-      }else {
-        nonceResult = false;
-      }
+      
+      nonceResult = node.validateBlock(senderUrl, mined);
     }
     
     JSONObject response = new JSONObject();
-    response.put("valid", nonceIsValid);
+    response.put("valid", nonceResult);
     
     return response.toString();
   }
@@ -180,10 +146,9 @@ public class NodeController {
   @GetMapping("/last-nonce")
   public String getLastNounce(String[] args) {
 	   BlockChain blockchain = node.getBlockChain();
-    Block      block   = blockchain.getLastBlock();
+    Block      block      = blockchain.getLastBlock();
     
     JSONObject json = new JSONObject();
-    
     json.put("difficulty", blockchain.getDifficulty());
     json.put("nonce",      block.getNonce());
     
@@ -193,6 +158,7 @@ public class NodeController {
   @GetMapping("/blockchain-info")
   public HashMap<String, String> getBlockChainInfo(String[] args) {
 	   BlockChain blockchain = node.getBlockChain();
+	   
 	   HashMap<String, String> info = blockchain.getInfo();
 	
     return info;
@@ -209,6 +175,7 @@ public class NodeController {
     blockchain.addTransaction(transactionParams[0], transactionParams[1], value); //convert to has map?
     
     List<Transaction> pendingTransactions = blockchain.getPendingTransactions();
+    
     Transaction transaction;
     for (int i = 1; i < pendingTransactions.size(); i++) {
     	transaction = pendingTransactions.get(i);
@@ -239,16 +206,6 @@ public class NodeController {
     return stringArray;
   }
   
-  private String sendNodePing(WebClient client) {
-    String result = client.get()
-     .uri("/ping")
-     .retrieve()
-     .bodyToMono(String.class)
-     .block();
-
-    return result;
-  }
-  
   /*
 curl -i -H "Content-Type: application/json" -d "{ \"blockChainLength\": \"http://localhost:8071\"}" -X POST http://localhost:8071/get-blocks
 curl -i -H "Content-Type: application/json" -d "{ \"num\": 2}" -X POST http://localhost:8071/get-blocks
@@ -267,7 +224,7 @@ curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:80
 curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8074\"}" -X POST http://localhost:8074/set-url
 curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8075\"}" -X POST http://localhost:8075/set-url
 curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8076\"}" -X POST http://localhost:8076/set-url
-curl -i -X GET http://localhost:8072/init
+curl -i -X GET http://localhost:8072/init-blockchain
 curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8072\"}" -X POST http://localhost:8071/new-peer
 curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8071\"}" -X POST http://localhost:8073/new-peer
 curl -i -H "Content-Type: application/json" -d "{ \"url\": \"http://localhost:8072\"}" -X POST http://localhost:8074/new-peer
