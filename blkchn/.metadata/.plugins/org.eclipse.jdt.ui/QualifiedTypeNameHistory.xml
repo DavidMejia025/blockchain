@@ -11,4 +11,6 @@
     <fullyQualifiedTypeName name="org.springframework.util.LinkedMultiValueMap"/>
     <fullyQualifiedTypeName name="org.springframework.http.client.reactive.ClientHttpRequest"/>
     <fullyQualifiedTypeName name="reactor.util.MultiValueMap"/>
+    <fullyQualifiedTypeName name="blockchain.utils.HttpClient"/>
+    <fullyQualifiedTypeName name="blockchain.node.utils.HttpClient"/>
 </qualifiedTypeNameHistroy>
