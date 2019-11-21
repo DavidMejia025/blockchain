@@ -1,3 +1,8 @@
+<<<<<<< HEAD
 GitRepositoriesView.GitDirectories=/home/deif/Dropbox/Elite/projects/blockchain/.git\:
 GitRepositoriesView.GitDirectories.relative=/home/deif/Dropbox/Elite/projects/blockchain/.git\:
+=======
+GitRepositoriesView.GitDirectories=/home/deif/Dropbox/Elite/projects/blockchain/.git\:/home/deif/Dropbox/Elite/projects/code_evaluator/.git\:
+GitRepositoriesView.GitDirectories.relative=/home/deif/Dropbox/Elite/projects/blockchain/.git\:/home/deif/Dropbox/Elite/projects/code_evaluator/.git\:
+>>>>>>> refactor_n_w
 eclipse.preferences.version=1

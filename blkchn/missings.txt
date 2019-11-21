@@ -1,0 +1,19 @@
+For all
+
+Review and re review all project before asking for review
+
+API return statuses not text.
+JSON format is allowed only from controller to controller. Convert data inside application
+
+Wallet
+
+Add validations if converted into web app
+
+clear all code like if (true)
+
+design the  oocode re factor.
+
+review style spaces identation etc.
+
+Node
+

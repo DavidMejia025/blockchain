@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="/home/deif/Dropbox/Elite/projects/blockchain/blkchn/worker1WebApp"/>
+		<item value="/home/deif/Dropbox/Elite/projects/blockchain/blkchn/workerWebApp/worker"/>
+		<item value="/home/deif/Dropbox/Elite/projects/blockchain/blkchn/nodeWebApp"/>
+		<item value="/home/deif/Dropbox/Elite/projects/blockchain/blkchn/workerWebApp"/>
 		<item value="/home/deif/Dropbox/Elite/projects/blockchain"/>
 		<item value="/home/deif/Dropbox/Elite/projects/blockchain/blkchn"/>
 	</list>
